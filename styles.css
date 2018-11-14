@@ -1,0 +1,19 @@
+body {
+    font-family: 'Merriweather', serif;    
+    font-size: 60px;
+    background-color: cornflowerblue;
+    color: white;
+}
+h1 {
+    font-size: 40px;
+}
+h2 {
+    font-size: 30px;
+}
+select {
+    font-family: 'Charmonman', cursive;
+    background-color: orange;
+}
+
+
+
