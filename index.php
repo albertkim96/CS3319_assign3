@@ -14,11 +14,11 @@
 Select your options:
 
 <h2> 1. Select any customers and display which products they bought </h2>
+<?php  
+    include "getcustomers.php";
+?>
 <select> 
     <option value="1"> Select Here </option>
-    <?php  
-        include "getcustomers.php";
-    ?>
 </select>
 <hr>
 <hr>

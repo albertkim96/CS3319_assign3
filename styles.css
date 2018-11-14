@@ -1,17 +1,17 @@
 body {
     font-family: 'Merriweather', serif;    
-    font-size: 60px;
+    font-size: 30px;
     background-color: cornflowerblue;
     color: white;
 }
 h1 {
-    font-size: 40px;
+    font-size: 36px;
 }
 h2 {
     font-size: 30px;
 }
 select {
-    font-family: 'Charmonman', cursive;
+    font-family: 'Merriweather', serif; 
     background-color: orange;
 }
 
