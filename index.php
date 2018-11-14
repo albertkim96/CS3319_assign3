@@ -22,6 +22,18 @@ Select your options:
 </select>
 <hr>
 <hr>
+
+<h2> 2. Show the products table and decide to show it either ascending or descending by price </h2>
+<select> 
+    <option value="1"> Select Here </option>
+    <?php  
+        include "getcustomers.php";
+    ?>
+</select>
+<hr>
+<hr>
+
+
 </body>
 </html>
 
