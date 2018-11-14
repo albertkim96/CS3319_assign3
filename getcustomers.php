@@ -1,5 +1,5 @@
 <?php
-    $query = "SELECT * fName, lName from customers";
+    $query = "SELECT fName, lName from customers";
     $result = mysqli_query($connection,$query);
     if (!$result) {
         die("databases query failed.");
