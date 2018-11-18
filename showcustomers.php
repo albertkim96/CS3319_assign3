@@ -20,6 +20,7 @@
     </div>
 
     <h2> Here is the list of customers and their information along with their agent </h2>
+    <h3> Click on any of the customers to see what they purchased </h3>
     
     <!-- Connect to database -->
     <?php

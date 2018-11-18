@@ -1,18 +1,17 @@
 #show {
     display: table;
-    margin-right: auto;
-    margin-left: auto;
+    color: #000;
 }
 
 #show div {
     display: inline-block;
-    background-color: #e1eaea;
-    padding: 10px;
-    margin: 15px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    margin: 20px;
     height: auto;
     width: auto;
-  }
+}
   
-  #show div:hover {
-    background-color: #ffffff;
-  }
+#show div:hover {
+    background-color: #FFC0CB;
+}
