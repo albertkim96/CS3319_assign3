@@ -1,5 +1,5 @@
 <?php
-    $query = "SELECT * from customers INNER JOIN agents ON customers.agentID=agentID ORDER BY lName";
+    $query = "SELECT * from customers INNER JOIN agents ON customers.agentID=agents.agentID ORDER BY customers.lName";
     $result = mysqli_query($connection,$query);
     if (!$result) {
         die("databases query failed.");
