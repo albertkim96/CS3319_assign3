@@ -1,0 +1,43 @@
+body {
+    font-family: 'Merriweather', serif;    
+    font-size: 30px;
+    background-color: cornflowerblue;
+    color: white;
+}
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 30px;
+}
+select {
+    font-family: 'Merriweather', serif; 
+    background-color: orange;
+}
+
+#navigation-bar {
+    display: block;
+}
+
+#navigation-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+#navigation-bar li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+#navigation-bar li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+
+
