@@ -16,10 +16,10 @@ Select your options:
 <h2> 1. Select any customers and display which products they bought </h2>
 <select> 
     <option value="1"> Select Here </option>
-    <?php  
-        include "getcustomers.php";
-    ?>
 </select>
+<?php  
+    include "getcustomers.php";
+?>
 <hr>
 <hr>
 
