@@ -5,12 +5,8 @@
         die("databases query failed.");
     }
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<option value = " . $row["productID"]. ">";
-        echo $row["productDescription"];
-        echo " - ";
-        echo $row["costPerItem"];
-        echo " - ";
-        echo $row["numberItems"];
+        var_dump($row);
+        echo $row;
     }
     mysqli_free_result($result);
 ?>
