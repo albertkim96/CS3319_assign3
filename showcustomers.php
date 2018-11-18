@@ -18,18 +18,19 @@
         </ul>
     </div>
 
+    <h2> Here is the list of customers and their information along with their agent </h2>
+    
+    <!-- Connect to database -->
     <?php
         include "connecttodb.php";
     ?> 
 
     <form action="#" method="post">
-
         <div id="show">
             <?php 
                 include 'getcustomers.php'
             ?>
         </div>
-
     </form>
 </body>
 </html>
