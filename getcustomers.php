@@ -6,9 +6,14 @@
     }
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<div>';
-		echo '<input type="radio" name="customers" value="' . $row["CustomerID"] . '" /><b>' . $row["CustomerID"] . '</b>:<br> <b>Name:</b> ' . $row["lName"] . ', ' . $row["fName"] . '<br>';
-		echo '<b>Agent:</b> ' . $row["fName"] . ' ' . $row["lName"] . '<br>';
-		echo '<b>city:</b> ' . $row["city"] . '<br>';
+        echo '<b>Name:</b> ' . $row["customers.lName"] . ', ' . $row["customers.fName"] . '<br>';
+        echo '<b>Customer ID:</b>' . $row["customerID"] . '<br>';
+        echo '<b>Customer City:</b>' . $row["customers.city"] . '<br>';
+        echo '<b>Phone Number:</b>' . $row["phoneNumber"] . '<br>';
+        echo '<b>Agent Name:</b> ' . $row["agents.lName"] . ', ' . $row["agents.fName"] . '<br>';
+        echo '<b>Agent City:</b>' . $row["agents.city"] . '<br>';
+        echo '<b>Agent commission percent:</b>' . $row["agents.commissionPercent"] . '<br>';
+        echo '<b>Agent city:</b>' . $row["agents.agentID"] . '<br>';
 		echo '</div>';
 	}
     mysqli_free_result($result);
