@@ -27,6 +27,7 @@
         include "connecttodb.php";
     ?> 
 
+    <!-- Show all the customers in a block format with their names, ID, city, phone number and agent information --> 
     <form action="#" method="post">
         <div id="show">
             <?php 
