@@ -22,9 +22,29 @@
         </ul>
     </div>
 
+    <!-- Connect to database -->
+    <?php 
+        include "connecttodb.php";
+    ?>
+
+    <!-- Connect to customers database --> 
+    <div id="container">
+        <form action="updateNumber.php" method="post">
+            <?php 
+                include 'getcustomerinfo.php';
+
+                echo '<select name="customer">';
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value =' . $row["customerID"] . ' ' . $row["lName"] . ', ' . $row["fName"] . ' - ' . $row["phoneNumber"] . '</option>';
+                }
+                echo '</select';
+            ?>l
+        </form>
+
+        <input type="text" name="newCustomerNumber" placeholder="Input new phone number"><br>
+        <input type="submit" value="Update phone number">
+    </div>
+
 </body>
 </html>
-
-
-
-

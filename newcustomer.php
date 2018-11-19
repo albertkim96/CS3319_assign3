@@ -31,12 +31,11 @@
         <!-- Generates new ID for the customer -->
         <?php
             include 'getcustomerid.php';
-            # Prints the ID for the user to know when adding a new customer
             echo '<tr><td><label for="ID"> ID:</label>';
             echo '<td><b>' . $id  . '</b>';
+            echo '<br>'
         ?>
 
-        <!-- This is a table and its elements for neat organization for selection -->
         <tr><td><label for="fName">First Name:</label> <!-- FIRST NAME -->
         <td><input type="text" name="firstName" placeholder="John">
 
@@ -52,7 +51,6 @@
         <tr><td><label for="agentID">Agent:</label> <!-- AGENT SELECTION -->
         <td><select name="agent">
 
-        <!-- PHP to display agents user can select from -->
         <?php
         # Query to find all agents from agent table
             $query = 'SELECT * FROM agents';
@@ -66,7 +64,7 @@
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
         ?>
-        </table>
+        <br>
 
         <!-- Button to submit details and create new customer -->
         <input type="submit" value="Add New Customer" id="submission">
