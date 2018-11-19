@@ -15,7 +15,7 @@
             <li><a class="active" href="index.php">Go Home</a></li>
             <li><a href="showcustomers.php">View Customer Purchases</a></li>
             <li><a href="showproducts.php">View Products</a></li>
-            <li><a href="addpurchase.php">Insert a new Purchase</a></li>
+            <li><a href="newpurchase.php">Insert a new Purchase</a></li>
         </ul>
     </div>
 
