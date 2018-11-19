@@ -1,0 +1,36 @@
+#container {
+    margin: 20px auto auto auto;
+    padding: 15px 20px 15px 20px;
+    width: 43%;
+    height: auto;
+  
+    background-color: #f2f2f2;
+    text-align: center;
+  }
+  
+  #container ul {
+    list-style-type: none;
+  }
+  #container li {
+    margin-bottom: 10px;
+  }
+  
+  #customerSelect  {
+    display: block;
+    margin: 15px auto 0px auto;
+    padding: 5px 0px 5px 0px;
+  }
+  
+  #quantityTxt {
+    display: block;
+    margin: 20px auto 0px auto;
+    padding: 5px;
+  }
+  
+  #subButton {
+    display: inline;
+    height: 30px;
+    width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+  }
