@@ -30,10 +30,10 @@
 
         <!-- Generates new ID for the customer -->
         <?php
-            include 'findcustomerid.php';
+            include 'getcustomerid.php';
             # Prints the ID for the user to know when adding a new customer
             echo '<tr><td><label for="ID"> ID:</label>';
-            echo '<td><b>' . $newID  . '</b>';
+            echo '<td><b>' . $id  . '</b>';
         ?>
 
         <!-- This is a table and its elements for neat organization for selection -->
