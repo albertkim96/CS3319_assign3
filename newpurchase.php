@@ -41,7 +41,7 @@
                 echo '<p style="display: block; margin-bottom: 20px;"> CUSTOMER </p><select name="customer" id="customerSelect">';
                 # Loops through list of customers and makes them options of our selection
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value=' . $row["CustomerID"] . '>' . $row["FName"] . ' ' . $row["LName"] . '</option>';
+                    echo '<option value=' . $row["CustomerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
                 }
                 # End of select statement
                 echo '</select>';  
@@ -52,7 +52,7 @@
                 echo '<ul>';
                     # Loops through list of products and makes them options of our selection
                     while ($row = mysqli_fetch_assoc($product_query)) {
-                        echo '<li><input type="radio" name="productsid" value=' . $row["ProdID"] . ' />' . $row["Description"] . ' $' . $row["CostPerItem"] . '</li>';
+                        echo '<li><input type="radio" name="productsid" value=' . $row["productID"] . ' />' . $row["productDescription"] . ' $' . $row["costPerItem"] . '</li>';
                     }
                 echo '</ul>';
   			?>
@@ -71,7 +71,7 @@
             $query = 'INSERT INTO productsold VALUES (' . $whichProduct . ', ' . $whichProduct . ', ' . intval($quantity) . ')';
             # Checks if the query failed and outputs message if it does, otherwise adds row to database
             if ( !mysqli_query($connection, $query) ) {
-            die('Error: Insertion Failed: ' . mysqli_error($connection));
+                die('Error: Insertion Failed: ' . mysqli_error($connection));
             }
             # Welcome
             echo 'Product purchased!';
