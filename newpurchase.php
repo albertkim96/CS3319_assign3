@@ -40,7 +40,7 @@
                 # Starts a selection operation to pick from a list of customers
                 echo '<p style="display: block; margin-bottom: 20px;"> CUSTOMER </p><select name="customer" id="customerSelect">';
                 # Loops through list of customers and makes them options of our selection
-                while ($row = mysqli_fetch_assoc($c_result)) {
+                while ($row = mysqli_fetch_assoc($result)) {
                     echo '<option value=' . $row["CustomerID"] . '>' . $row["FName"] . ' ' . $row["LName"] . '</option>';
                 }
                 # End of select statement
@@ -51,7 +51,7 @@
                 # Putting all the radio buttons into an unordered list
                 echo '<ul>';
                     # Loops through list of products and makes them options of our selection
-                    while ($row = mysqli_fetch_assoc($p_result)) {
+                    while ($row = mysqli_fetch_assoc($product_query)) {
                         echo '<li><input type="radio" name="productsid" value=' . $row["ProdID"] . ' />' . $row["Description"] . ' $' . $row["CostPerItem"] . '</li>';
                     }
                 echo '</ul>';
