@@ -33,7 +33,7 @@
             <?php 
                 include 'getcustomerinfo.php';
 
-                echo '<select name="customer">';
+                echo '<select name="customers">';
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<option value =' . $row["customerID"] . ' ' . $row["lName"] . ', ' . $row["fName"] . ' - ' . $row["phoneNumber"] . '</option>';
@@ -43,7 +43,7 @@
         </form>
 
         <input type="text" name="newCustomerNumber" placeholder="Input new phone number"><br>
-        <input type="submit" value="Update phone number">
+        <input type="submit" value="Update customer's phone number">
     </div>
 
 </body>
