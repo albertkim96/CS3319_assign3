@@ -19,6 +19,10 @@
         </ul>
     </div>
 
+    <?php
+        include "connecttodb.php";
+    ?> 
+
     <div id="container">
         <form action="#" method="post">
             <?php
