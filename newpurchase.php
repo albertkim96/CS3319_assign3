@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Customers Databases</title>
+    <title>Adding a new Purchase</title>
     <link rel="stylesheet" type="text/css" href="styling/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"></head>
 <body>
@@ -63,7 +63,7 @@
             <input type="submit" value="Insert Product Purchase" id="subButton">
   		</form>
 
-        <?php
+        <!--?php
             # Initializes variables to store the purchasers id and the products id that they are purchasing
             $whichCustomer = $_POST["customer"];
             $whichProduct = $_POST["product"];
@@ -78,7 +78,7 @@
             echo 'Product purchased!';
             # Closes database
             mysqli_close($connection);
-        ?>
+        ?-->
 
                 
     </div>
