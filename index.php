@@ -10,7 +10,7 @@
     <h1>Assignment 3 CS3319 Database</h1>
     Select your options:
 
-    <div id="navigation-bar"> 
+    <div id="navigation-bar">
         <ul>
             <li><a class="active" href="index.php">Go Home</a></li>
             <li><a href="showcustomers.php">View Customer Purchases</a></li>
@@ -18,13 +18,9 @@
             <li><a href="newpurchase.php">Insert a new Purchase</a></li>
             <li><a href="newcustomer.php">Adding a customer</a></li>
             <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
-            
+            <li><a href="deletecustomer.php">Delete a customer</a></li>
         </ul>
     </div>
 
 </body>
 </html>
-
-
-
-

@@ -11,7 +11,7 @@
     <h1>Assignment 3 CS3319 Database</h1>
     Select your options:
 
-    <div id="navigation-bar"> 
+    <div id="navigation-bar">
         <ul>
             <li><a class="active" href="index.php">Go Home</a></li>
             <li><a href="showcustomers.php">View Customer Purchases</a></li>
@@ -23,7 +23,7 @@
 
     <?php
         include "connecttodb.php";
-    ?> 
+    ?>
 
     <div id="container">
         <form action="insertnewcustomer.php" method="post">
@@ -37,13 +37,13 @@
         ?>
 
         <tr><td><label for="fName">First Name:</label> <!-- FIRST NAME -->
-        <td><input type="text" name="firstName" placeholder="John">
+        <td><input type="text" name="firstName" placeholder="Albert">
 
         <tr><td><label for="lName">Last Name:</label> <!-- LAST NAME -->
-        <td><input type="text" name="lastName" placeholder="Doe"><br>
+        <td><input type="text" name="lastName" placeholder="Kim"><br>
 
         <tr><td><label for="city">Address:</label> <!-- ADDRESS -->
-        <td><input type="text" name="address" placeholder="North Korea"><br>
+        <td><input type="text" name="address" placeholder="France"><br>
 
         <tr><td><label for="phoneNumber">Phone Number:</label> <!-- PHONE NUMBER -->
         <td><input type="text" name="pNumber" placeholder="***-****"><br>
