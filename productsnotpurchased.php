@@ -36,8 +36,8 @@
         }
         while ($row = mysqli_fetch_assoc($result)) {
           echo ' <tr> <th scope="row">' . $row['productID'] . '</th> <td>'
-          . $row['productDescription'] . '</td> <td> . $row['costPerItem']
-          . '</td> <td>' . $row['numberItems'] . '</td>
+          . $row['productDescription'] . '</td> <td>' . $row['costPerItem']
+          . '</td> <td>' . $row['numberItems'] . '</td> </tr>';
         }
         mysqli_free_result($result);
         mysqli_close($connection);
