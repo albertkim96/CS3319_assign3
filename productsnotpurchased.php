@@ -23,5 +23,25 @@
         </ul>
     </div>
 
+    <?php
+        include "connecttodb.php";
+    ?>
+
+    <div id="container">
+      <?php
+        $query = "SELECT * FROM products WHERE productID NOT IN (productID FROM purchase)";
+        $result = mysqli_query($connection, $query);
+        if (!$result) {
+          die("Query failed");
+        }
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo ' <tr> <th scope="row">' . $row['productID'] . '</th> <td>'
+          . $row['productDescription'] . '</td> <td> . $row['costPerItem']
+          . '</td> <td>' . $row['numberItems'] . '</td>
+        }
+        mysqli_free_result($result);
+        mysqli_close($connection);
+    </div>
+
 </body>
 </html>
