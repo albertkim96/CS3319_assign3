@@ -19,32 +19,20 @@
             <li><a href="newcustomer.php">Adding a customer</a></li>
             <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
             <li><a href="deletecustomer.php">Delete a customer</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more than a given quantity</a></li>
             <li><a href="productsnotpurchased.php">List products not purchased </a></li>
         </ul>
     </div>
 
+    <!-- Connect to database -->
     <?php
         include "connecttodb.php";
     ?>
-
     <div id="container">
-      <h2> Here are the products not purchased: </h2>
       <?php
-        $query = 'SELECT * FROM products WHERE productID NOT IN (SELECT productID FROM purchase)';
-        $result = mysqli_query($connection, $query);
-        if (!$result) {
-          die("Query failed");
-        }
-        // Fix this 
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo ' <tr> <th scope="row">' . $row['productID'] . '</th> <td>'
-          . $row['productDescription'] . '</td> <td>' . $row['costPerItem']
-          . '</td> <td>' . $row['numberItems'] . '</td> </tr>' . '<br>';
-        }
-        mysqli_free_result($result);
-        mysqli_close($connection);
-      ?>
+        $query = 'SELECT * FROM purchase ';
     </div>
+
 
 </body>
 </html>

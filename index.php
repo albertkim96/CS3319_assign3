@@ -19,6 +19,7 @@
             <li><a href="newcustomer.php">Adding a customer</a></li>
             <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
             <li><a href="deletecustomer.php">Delete a customer</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more</a></li>
             <li><a href="productsnotpurchased.php">List products not purchased </a></li>
         </ul>
     </div>
