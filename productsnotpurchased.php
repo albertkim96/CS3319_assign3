@@ -29,7 +29,7 @@
 
     <div id="container">
       <?php
-        $query = 'SELECT * FROM products';
+        $query = 'SELECT * FROM products WHERE productID NOT IN (SELECT productID FROM purchase)';
         $result = mysqli_query($connection, $query);
         if (!$result) {
           die("Query failed");
