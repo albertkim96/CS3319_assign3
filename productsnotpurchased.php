@@ -28,6 +28,7 @@
     ?>
 
     <div id="container">
+      <h2> Here are the products not purchased: </h2>
       <?php
         $query = 'SELECT * FROM products WHERE productID NOT IN (SELECT productID FROM purchase)';
         $result = mysqli_query($connection, $query);
@@ -37,7 +38,7 @@
         while ($row = mysqli_fetch_assoc($result)) {
           echo ' <tr> <th scope="row">' . $row['productID'] . '</th> <td>'
           . $row['productDescription'] . '</td> <td>' . $row['costPerItem']
-          . '</td> <td>' . $row['numberItems'] . '</td> </tr>';
+          . '</td> <td>' . $row['numberItems'] . '</td> </tr>' . '<br>';
         }
         mysqli_free_result($result);
         mysqli_close($connection);
