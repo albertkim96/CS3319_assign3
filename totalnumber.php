@@ -46,7 +46,7 @@
           }
 
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . '</option>';
+            echo '<option value=' . $row["productID"] . '>' . $row["productID"] . ': ' . $row["productDescription"] . '</option>';
           }
 
           echo '</select>';
