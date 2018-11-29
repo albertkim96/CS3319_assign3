@@ -86,7 +86,20 @@
             echo $row["productDescription"];
           }
         ?> </b></li>
-        <li> Product cost: <b> <?php echo $products["costPerItem"]; ?> </b></li>
+        <li> Product cost: <b>
+        <?php
+        <?php
+          $query = 'SELECT * from products WHERE productID=' . $product_name;
+          $result = mysqli_query($connection, $query);
+
+          if (!$result) {
+            die("databases query failed.");
+          }
+
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo $row["costPerItem"];
+          }
+        ?> </b></li>
         <li> Total amount: <b> <?php echo $amount["total"]; ?> </b></li>
         <li> Total profit: <b> <?php echo $totalAmount; ?> </b></li>
       </ul>
