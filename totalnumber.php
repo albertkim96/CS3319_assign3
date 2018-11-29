@@ -88,7 +88,6 @@
         ?> </b></li>
         <li> Product cost: <b>
         <?php
-        <?php
           $query = 'SELECT * from products WHERE productID=' . $product_name;
           $result = mysqli_query($connection, $query);
 
