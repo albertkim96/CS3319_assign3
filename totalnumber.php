@@ -58,12 +58,12 @@
 
       <?php
         if (isset($_POST["submit"])) {
-          $products = $_POST["products"];
-          $query = 'SELECT SUM(quantity) as total FROM purchase WHERE productID=' . $products . ' GROUP BY productID';
+          $product_name = $_POST["products"];
+          $query = 'SELECT SUM(quantity) as total FROM purchase WHERE productID=' . $product_name . ' GROUP BY productID';
           $result = mysqli_query($connection, $query);
           $amount = mysqli_fetch_assoc($result);
 
-          $products_query = 'SELECT * FROM products where productID=' . $products;
+          $products_query = 'SELECT * FROM products where productID=' . $product_name;
           $products_result = mysqli_query($connection, $products_query);
           $products_amount = mysqli_fetch_assoc($products_result);
 
@@ -72,7 +72,7 @@
       ?>
 
       <ul>
-        <li> Product ID: <b> <?php echo $products; ?> </b></li>
+        <li> Product ID: <b> <?php echo $product_name; ?> </b></li>
         <li> Product Name: <b> <?php echo $products["productDescription"]; ?> </b></li>
         <li> Product cost: <b> <?php echo $products["costPerItem"]; ?> </b></li>
         <li> Total amount: <b> <?php echo $amount["total"]; ?> </b></li>
