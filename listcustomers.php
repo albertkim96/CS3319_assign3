@@ -30,7 +30,7 @@
     ?>
 
     <div id="container">
-      <h2> PLease enter a quantity </h2>
+      <h2> Please enter a quantity </h2>
 
       <form action="#" method="post">
         <input type="text" id="amount" name="quantity" placeholder="Amount">
@@ -50,7 +50,7 @@
               die("databases query failed.");
           }
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li><b>' . $row["fName"] . ' ' . $row["lName"] . '</b> Purchased <b>' . $row["productDescription"] . '</b> In Amount: <b>' . $row["quantity"] . '</b></li>';
+            echo '<li><b>' . $row["fName"] . ' ' . $row["lName"] . '</b> Purchased <b>' . $row["productDescription"] . '</b>. Amount: <b>' . $row["quantity"] . '</b></li>';
           }
         }
         # Closes database
