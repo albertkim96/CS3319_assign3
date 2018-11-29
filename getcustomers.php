@@ -1,3 +1,5 @@
+<!-- This page gets all the information from the customers table and joins them with the agent table based on their ID -->
+
 <?php
     $query = "SELECT * from customers INNER JOIN agents ON customers.agentID=agents.agentID ORDER BY lName";
     $result = mysqli_query($connection,$query);

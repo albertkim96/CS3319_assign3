@@ -13,15 +13,16 @@
 
     <div id="navigation-bar">
         <ul>
-          <li><a href="index.php">Go Home</a></li>
-          <li><a class="active" href="showcustomers.php">View Customer Purchases</a></li>
-          <li><a href="showproducts.php">View Products</a></li>
-          <li><a href="newpurchase.php">Insert a new Purchase</a></li>
-          <li><a href="newcustomer.php">Adding a customer</a></li>
-          <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
-          <li><a href="deletecustomer.php">Delete a customer</a></li>
-          <li><a href="listcustomers.php">List all customers who bought more</a></li>
-          <li><a href="productsnotpurchased.php">List products not purchased </a></li>
+            <li><a href="index.php">Go Home</a></li>
+            <li><a class="active" href="showcustomers.php">View Customer Purchases</a></li>
+            <li><a href="showproducts.php">View Products</a></li>
+            <li><a href="newpurchase.php">Insert a new Purchase</a></li>
+            <li><a href="newcustomer.php">Adding a customer</a></li>
+            <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
+            <li><a href="deletecustomer.php">Delete a customer</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more</a></li>
+            <li><a href="productsnotpurchased.php">List products not purchased</a></li>
+            <li><a href="totalnumber.php">List total number of purchases for a product</a></li>
         </ul>
     </div>
 
