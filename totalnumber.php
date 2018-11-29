@@ -46,13 +46,40 @@
           }
 
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value=' . $row["productID"] . ': ' . $row["productDescription"] . '</option>';
+            echo '<option value=' . $row["productID"] . '>' . $row["productID"] . ': ' . $row["productDescription"] . '</option>';
           }
 
           echo '</select>';
         ?>
 
+        <input type="submit" name="submit" value="Get profit">
+
       </form>
+
+      <?php
+        if (isset($_POST["submit"])) {
+          $products = $_POST["products"]
+          $query = 'SELECT SUM(quantity) as total FROM purchase WHERE productID=' . $products . ' GROUP BY productID';
+          $result = mysqli_query($connection, $query);
+          $amount = mysqli_fetch_assoc($result);
+
+          $products_query = 'SELECT * FROM products where productID=' . $products;
+          $products_result = mysqli_query($connection, $products_query);
+          $products_amount = mysqli_fetch_assoc($products_result);
+
+          $totalAmount = $products_amount["costPerItem"] * $amount["total"];
+        }
+      ?>
+
+      <ul>
+        <li> Product ID: <b> <?php echo $products; ?> </b></li>
+        <li> Product Name: <b> <?php echo $products["productDescription"]; ?> </b></li>
+        <li> Product cost: <b> <?php echo $products["costPerItem"]; ?> </b></li>
+        <li> Total amount: <b> <?php echo $amount["total"]; ?> </b></li>
+        <li> Total profit: <b> <?php echo $totalAmount; ?> </b></li>
+      </ul>
+
+      <?php mysqli_close($connection) ?>
     </div>
 
 </body>
