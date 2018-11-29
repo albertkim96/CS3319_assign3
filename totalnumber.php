@@ -58,7 +58,7 @@
 
       <?php
         if (isset($_POST["submit"])) {
-          $products = $_POST["products"]
+          $products = $_POST["products"];
           $query = 'SELECT SUM(quantity) as total FROM purchase WHERE productID=' . $products . ' GROUP BY productID';
           $result = mysqli_query($connection, $query);
           $amount = mysqli_fetch_assoc($result);
