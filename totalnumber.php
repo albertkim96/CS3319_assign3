@@ -31,12 +31,12 @@
     ?>
 
     <div id="container">
-      <h2> Products </h2>
+      <h2> Choose a Product to find out the total money made in sales for that product </h2>
 
       <!-- Allowing the user to search/select the product -->
       <form action="#" method="post">
         <select name="products">
-        
+
         <?php
           $query = 'SELECT * from products';
           $result = mysqli_query($connection, $query);
@@ -48,6 +48,8 @@
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . '</option>';
           }
+
+          echo '</select>';
         ?>
 
       </form>
