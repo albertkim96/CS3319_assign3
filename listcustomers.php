@@ -52,8 +52,9 @@
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<li><b>' . $row["fName"] . ' ' . $row["lName"] . '</b> Purchased <b>' . $row["productDescription"] . '</b> In Amount: <b>' . $row["quantity"] . '</b></li>';
           }
-          # Closes database
-          mysqli_close($connection);
+        }
+        # Closes database
+        mysqli_close($connection);
       ?>
     </div>
 </body>
