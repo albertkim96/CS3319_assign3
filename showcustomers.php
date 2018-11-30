@@ -67,8 +67,8 @@ File: showcustomers.php -->
           $customerid = $_POST["choosecustomer"];
           $quantity = $_POST["quantity"];
           # Query to get product name and quantity
-          $query = 'SELECT customerid, productDescription, quantity
-          from purchase c INNER JOIN products on products.productID=c.productID
+          $query = 'SELECT productDescription, quantity
+          from purchase c INNER JOIN products b ON b.productID=c.productID
           INNER JOIN customers a ON a.customerID=c.customerid WHERE c.customerid' . $customerid;
           $result = mysqli_query($connection, $query);
           # Check if query worked
