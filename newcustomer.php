@@ -64,10 +64,12 @@
             if (!$result) {
                 die("Query failed");
             }
+            echo '<select name="agent">';
             # Loops through all rows of agent and adds them as option to the selection
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
+            echo '<select>';
         ?>
         <br>
 
