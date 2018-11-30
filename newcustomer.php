@@ -64,12 +64,10 @@
             if (!$result) {
                 die("Query failed");
             }
-            echo '<select name="agent">';
             # Loops through all rows of agent and adds them as option to the selection
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
-            echo '</select>';
         ?>
         <br>
 
@@ -77,14 +75,10 @@
         <input type="submit" name="newCustomer" value="Add New Customer">
         </form>
 
-        <!-- PHP to insert new customer -->
       <?php
-        # Checks if the user submitted a new customer
         if (isset($_POST["newCustomer"])) {
-          # Finds a new customerID and initializes it
           include 'getcustomerid.php';
           $customerID = $id;
-          # Variables initializing all new customer attributes
           $customerFName = $_POST["firstName"];
           $customerLName = $_POST["lastName"];
           $customerAddress = $_POST["address"];
