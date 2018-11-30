@@ -89,7 +89,7 @@
           $customerPhone = $_POST["pNumber"];
           $customerAgent = $_POST["agent"];
           # Query to insert into customer table
-          $query = 'INSERT INTO customer VALUES (' . $customerFName . ',' .
+          $query = 'INSERT INTO customers VALUES (' . $customerFName . ',' .
             $customerLName . ',"' . $customerAddress . '","' . $customerPhone . '","' .
             $customerID . '","' . $customerAgent . '")';
           $insert_result = mysqli_query($connection, $query);
