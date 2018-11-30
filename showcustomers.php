@@ -38,10 +38,9 @@
       <form action="#" method="post">
           <div id="show">
               <?php
-                  include 'getcustomers.php'
+                  include 'getcustomers.php';
               ?>
           </div>
-          <input type="submit"
       </form>
 
     </div>
