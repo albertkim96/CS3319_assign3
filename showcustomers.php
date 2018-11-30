@@ -67,13 +67,19 @@ File: showcustomers.php -->
           $customerid = $_POST["choosecustomer"];
           $quantity = $_POST["quantity"];
           # Query to get product name and quantity
-          $query = 'SELECT productDescription, quantity FROM purchase INNER JOIN products
-          ON products.productID=purchase.productID INNER JOIN customers ON
-          customers.customerID=purchase.customerID WHERE customerID=' . $customerid;
+          $query = 'CREATE VIEW totalProducts AS SELECT customerid, productDescription, quantity
+          from purchase INNER JOIN products on products.productID=purchase.productID';
           $result = mysqli_query($connection, $query);
           # Check if query worked
           if (!$result) {
-            die("Query failed");
+            die("View Query failed");
+          }
+
+          $customer_query = 'SELECT productDescription, quantity from totalProducts c
+          INNER JOIN customers a on a.customerID=c.customerid where c.customerid=' . $customerid;
+          $customer_result = mysqli_query($connection, $customer_query);
+          if(!$customer_result) {
+            die("Query failed!");
           }
           echo '<h2> Products: </h2>';
 
