@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: showproducts.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +39,38 @@
     ?>
 
     <div id="container">
-        <form action="getproducts.php">
+      <h2> Please choose how you would like to order your products
+        <!-- Get the user's choice -->
+        <form action="#" method="post">
+          <!-- Ask if they want to do it through the cost or name -->
+          <select name="order">
+            <option value="cost">Cost</option>
+            <option value="name">Name</option>
+          </select>
+
+          <!-- Ask if they want it to do it through an ascending or descending order -->
+          <select name="ascdesc">
+            <option value="ascending"> Ascending</option>
+            <option value="descending"> Descending</option>
+          </select>
+
+          <input name="show" type="submit" value="Show">
+        </form>
+
+        <?php
+          if (isset($_POST["show"])) {
+            $query = 'SELECT * from products ORDER BY ' . $_POST["order"] . ' ' . $_POST["ascdesc"];
+            $result = mysqli_query($connection, $query);
+            if (!$result) {
+              die("Query failed");
+            }
+            # Create a loop to print the data
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '<li>' . $row["productID"] . '<li>' . $row["productDescription"] . '<li>' . $row["costPerItem"] . '<li>' . $row["numberItems"];
+            }
+            mysqli_free_result($result);
+          }
+        ?>
     </div>
 
 </body>
