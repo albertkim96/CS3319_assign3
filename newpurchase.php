@@ -101,7 +101,7 @@ File: newpurchase.php -->
           }
           # If the customer has purchased this product already
           else {
-            $newTotal = $query["quantity"] + $quantity;
+            $newTotal = $row["quantity"] + $quantity;
             $add_query = 'UPDATE purchase SET quantity=' . $newTotal . 'WHERE customerid=' . $customerName . 'AND productID=' . $product;
           }
 
