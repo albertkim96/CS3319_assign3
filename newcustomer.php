@@ -69,7 +69,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
-            echo '<select>';
+            echo '</select>';
         ?>
         <br>
 
