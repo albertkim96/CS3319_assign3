@@ -66,7 +66,7 @@ File: showcustomers.php -->
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
           $quantity = $_POST["quantity"];
-          $query = 'SELECT quantity FROM purchase';
+          $query = 'SELECT quantity FROM purchase WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
           if (!$result) {
             die("Query failed");
