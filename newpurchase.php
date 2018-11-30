@@ -71,27 +71,12 @@ File: newpurchase.php -->
                 echo '</select>';
   			    ?>
 
-
+        <br>
   			<input type="text" name="quantity" placeholder="Quantity">
         <input type="submit" value="Insert Quantity">
   		</form>
 
-        <?php
-            # Initializes variables to store the purchasers id and the products id that they are purchasing
-            $whichCustomer = $_POST["customer"];
-            $whichProduct = $_POST["product"];
-            $quantity = $_POST["quantity"];
-            # Query to insert purchase order into values
-            $query = 'INSERT INTO products VALUES (' . $whichProduct . ', ' . $whichProduct . ', ' . intval($quantity) . ')';
-            # Checks if the query failed and outputs message if it does, otherwise adds row to database
-            if ( !mysqli_query($connection, $query) ) {
-                die('Error: Insertion Failed: ' . mysqli_error($connection));
-            }
-            # Welcome
-            echo 'Product purchased!';
-            # Closes database
-            mysqli_close($connection);
-        ?>
+      
 
 
     </div>
