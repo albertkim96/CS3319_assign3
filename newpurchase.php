@@ -102,7 +102,7 @@ File: newpurchase.php -->
           # If the customer has purchased this product already
           else {
             $newTotal = $row["quantity"] + $quantity;
-            $add_query = 'UPDATE purchase SET quantity=' . $newTotal . 'WHERE customerid=' . $customerName . 'AND productID=' . $product;
+            $add_query = 'UPDATE purchase SET quantity=' . $newTotal . ' WHERE customerid=' . $customerName . ' AND productID=' . $product;
             $add_result = mysqli_query($connection, $add_query);
             if(!$add_result) {
               die("Add query has failed");
