@@ -56,7 +56,7 @@
         <?php
           if (isset(_$POST["submit"])) {
             $newPhoneNumber = $_POST["newCustomerNumber"];
-            $query = 'UPDATE customers SET phoneNumber' . $newPhoneNumber . 'WHERE customerID=' . $_POST["customerlist"];
+            $query = 'UPDATE customers SET phoneNumber"' . $newPhoneNumber . '" WHERE customerID=' . $_POST["customerlist"];
             $result = mysqli_query($connection, $query);
             if (!$result) {
               die("Query failed");
