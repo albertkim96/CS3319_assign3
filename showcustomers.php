@@ -49,7 +49,6 @@
               ' - ' . $row["phoneNumber"] . '</option>';
             }
             echo '</select>';
-            mysqli_free_result($result);
           ?>
           <br>
           <input type="submit" name="submit">
