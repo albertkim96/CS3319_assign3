@@ -89,8 +89,8 @@
           $customerPhone = $_POST["pNumber"];
           $customerAgent = $_POST["agent"];
           # Query to insert into customer table
-          $query = 'INSERT INTO customers VALUES ('$customerID', '$customerFName',
-          '$customerLName', '$customerAddress', '$customerPhone', '$customerAgent')';
+          $query = "INSERT INTO customers VALUES ('$customerID', '$customerFName',
+          '$customerLName', '$customerAddress', '$customerPhone', '$customerAgent')";
           $insert_result = mysqli_query($connection, $query);
           # Checks if the query was successful
           if (!$insert_result) {
