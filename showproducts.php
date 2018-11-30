@@ -66,7 +66,7 @@ File: showproducts.php -->
             }
             # Create a loop to print the data
             while ($row = mysqli_fetch_assoc($result)) {
-              echo '<li>' . $row["productID"] . '<li>' . $row["productDescription"] . '<li>' . $row["costPerItem"] . '<li>' . $row["numberItems"];
+              echo '<li>' . $row["productID"] . ' ' . $row["productDescription"] . ' ' . $row["costPerItem"] . ' ' . $row["numberItems"];
             }
             mysqli_free_result($result);
           }
