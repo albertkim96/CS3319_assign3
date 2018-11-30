@@ -96,7 +96,7 @@ File: newcustomer.php -->
           $customerID = $id;
           $customerFName = $_POST["firstName"];
           $customerLName = $_POST["lastName"];
-          $customerCity = $_POST["address"];
+          $customerCity = $_POST["city"];
           $customerPhone = $_POST["pNumber"];
           $customerAgent = $_POST["agent"];
           # Query to insert into customer table
