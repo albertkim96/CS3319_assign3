@@ -48,7 +48,9 @@
                 }
                 echo '</select';
             ?>
-            <input type="text" name="newCustomerNumber" placeholder="xxx-xxxx"><br>
+            <br>
+            <input type="text" name="newCustomerNumber" placeholder="xxx-xxxx">
+            <br>
             <input type="submit" name="submit">
         </form>
 
