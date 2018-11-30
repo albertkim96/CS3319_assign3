@@ -36,6 +36,7 @@ File: newpurchase.php -->
 
     <div id="container">
         <form action="#" method="post">
+            <h2> Please choose your customer </h2>
             <?php
                 # Include the customer information
                 $query = 'SELECT * FROM customers';
@@ -45,6 +46,15 @@ File: newpurchase.php -->
                   die("Customer query did not work");
                 }
 
+                echo '<select>';
+                # Loops through list and shows them as options
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
+                }
+                echo '</select>';
+            ?>
+            <h2> Please choose your product </h2>
+            <?php
                 # Get product database information
                 $product_query = 'SELECT * FROM products';
                 $product_result = mysqli_query($connection, $product_query);
@@ -54,28 +64,19 @@ File: newpurchase.php -->
                 }
 
                 echo '<select>';
-                # Loops through list of customers and makes them options of our selection
+                # Loops through list of products and makes them options of our selection
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
+                    echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ' ' . $row["costPerItem"] . '</option>';
                 }
                 echo '</select>';
-
-                # Putting all the radio buttons into an unordered list
-                echo '<ul>';
-                # Loops through list of products and makes them options of our selection
-                while ($row = mysqli_fetch_assoc($product_result)) {
-                    echo '<li><input type="radio" name="productsid" value=' . $row["productID"] . ' />' . $row["productDescription"] . ' $' . $row["costPerItem"] . '</li>';
-                }
-                echo '</ul>';
   			?>
 
-  			<!-- Asks the user the quantity of the product chosen they would like to purchase -->
-  			<input type="text" name="quantity" placeholder="Quantity" id="quantityTxt" size="15">
-            <br>
-            <input type="submit" value="Insert Product Purchase" id="subButton">
+  			
+  			<input type="text" name="quantity" placeholder="Quantity">
+        <input type="submit" value="Insert Quantity">
   		</form>
 
-        <!--?php
+        <?php
             # Initializes variables to store the purchasers id and the products id that they are purchasing
             $whichCustomer = $_POST["customer"];
             $whichProduct = $_POST["product"];
@@ -90,7 +91,7 @@ File: newpurchase.php -->
             echo 'Product purchased!';
             # Closes database
             mysqli_close($connection);
-        ?-->
+        ?>
 
 
     </div>
