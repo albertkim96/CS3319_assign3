@@ -6,6 +6,7 @@
     if (!$result) {
         die("databases query failed.");
     }
+    echo '<select name="choosecustomer">'
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<div>';
         echo '<b>Name:</b> ' . $row["lName"] . ', ' . $row["fName"] . '<br>';
@@ -15,6 +16,7 @@
         echo '<b>Agent Name:</b> ' . $row["lastName"] . ', ' . $row["firstName"] . '<br>';
         echo '<b>Agent City:</b> ' . $row["agentCity"] . '<br>';
 		echo '</div>';
+    echo '</select>';
 	}
-    mysqli_free_result($result);
+  mysqli_free_result($result);
 ?>

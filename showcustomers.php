@@ -33,14 +33,17 @@
     <?php
         include "connecttodb.php";
     ?>
+    <div id="container">
+      <!-- Show all the customers in a block format with their names, ID, city, phone number and agent information -->
+      <form action="#" method="post">
+          <div id="show">
+              <?php
+                  include 'getcustomers.php'
+              ?>
+          </div>
+          <input type="submit"
+      </form>
 
-    <!-- Show all the customers in a block format with their names, ID, city, phone number and agent information -->
-    <form action="#" method="post">
-        <div id="show">
-            <?php
-                include 'getcustomers.php'
-            ?>
-        </div>
-    </form>
+    </div>
 </body>
 </html>
