@@ -66,8 +66,7 @@
           }
           echo '<h2> Products: </h2>';
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li>' . $_POST["productDescription"] . ' - ' . $_POST["quantity"];
-            echo '</li>';
+            echo '<li>' . $_POST["productDescription"] . '</li>';
           }
         }
         mysqli_close($connection);
