@@ -32,7 +32,7 @@
     <div id="container">
         <form action="#" method="post">
             <?php
-                $result = 'SELECT * FROM customers';
+                $query = 'SELECT * FROM customers';
                 $result = mysqli_query($connection, $query);
                 # Checks if query was successful
                 if (!$result) {
