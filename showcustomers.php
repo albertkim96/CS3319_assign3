@@ -37,7 +37,19 @@
       <!-- Show all the customers in a block format with their names, ID, city, phone number and agent information -->
       <form action="#" method="post">
           <?php
-              include 'getcustomers.php';
+            $query = "SELECT * from customers INNER JOIN agents ON customers.agentID=agents.agentID ORDER BY lName";
+            $result = mysqli_query($connection,$query);
+            if (!$result) {
+                die("databases query failed.");
+            }
+            echo '<select name="choosecustomer">';
+            while ($row = mysqli_fetch_assoc($result)) {
+              echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . ', '
+              . $row["city"] . ', Agent: ' . '<b>' . $row["firstName"] . ' ' . $row["lastName"] . '</b>' .
+              ' - ' . $row["phoneNumber"] . '</option>';
+            }
+            echo '</select>';
+            mysqli_free_result($result);
           ?>
           <br>
           <input type="submit" name="submit">
@@ -47,8 +59,7 @@
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
           $query = 'SELECT productDescription, quantity FROM purchase INNER JOIN products ON
-          products.productID=purchase.productID
-           WHERE customerID=' . $customerid;
+          products.productID=purchase.productID WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
           if (!$result) {
             die("Query failed");
