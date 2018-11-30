@@ -36,13 +36,30 @@
     <div id="container">
       <!-- Show all the customers in a block format with their names, ID, city, phone number and agent information -->
       <form action="#" method="post">
-          <div id="show">
-              <?php
-                  include 'getcustomers.php';
-              ?>
-          </div>
+          <?php
+              include 'getcustomers.php';
+          ?>
+          <br>
+          <input type="submit" name="submit">
       </form>
 
+      <?php
+        if (isset($_POST["submit"])) {
+          $customerid = $_POST["choosecustomer"];
+          $query = 'SELECT productDescription, quantity FROM purchase INNER JOIN products ON
+          products.productID=purchase.productID INNER JOIN customers customers.customerID=purchase.customerID
+           WHERE customerID=' . $customerid;
+          $result = mysqli_query($connection, $query);
+          if (!$result) {
+            die("Query failed");
+          }
+          echo '<h2> Products: </h2>';
+          while ($row = mysqli_fetch_assoc($result)) {
+            echo '<li>' . $_POST["productDescription"] . ' - ' . $_POST["quantity"];
+            echo '</li>';
+          }
+        }
+      ?>
     </div>
 </body>
 </html>
