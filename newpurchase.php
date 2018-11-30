@@ -65,7 +65,7 @@ File: newpurchase.php -->
 
                 echo '<select>';
                 # Loops through list of products and makes them options of our selection
-                while ($row = mysqli_fetch_assoc($product_query)) {
+                while ($row = mysqli_fetch_assoc($product_result)) {
                     echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ' ' . $row["costPerItem"] . '</option>';
                 }
                 echo '</select>';
