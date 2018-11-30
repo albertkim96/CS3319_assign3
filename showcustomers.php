@@ -67,7 +67,7 @@ File: showcustomers.php -->
           $customerid = $_POST["choosecustomer"];
           $quantity = $_POST["quantity"];
           # Query to get product name and quantity
-          $query = "CREATE VIEW customerPurchaseList AS SELECT customerid, productDescription, quantity
+          $query = "SELECT customerid, productDescription, quantity
           from purchase INNER JOIN products on products.productID=purchase.productID";
           $result = mysqli_query($connection, $query);
           # Check if query worked
@@ -76,8 +76,8 @@ File: showcustomers.php -->
           }
 
           # Use the view query to get the information
-          $customer_query = "SELECT productDescription, quantity from customerPurchaseList c
-          INNER JOIN customers a on a.customerID=c.customerid where c.customerid=" . $customerid;
+          $customer_query = 'SELECT productDescription, quantity from' . $query .
+          'c INNER JOIN customers a on a.customerID=c.customerid where c.customerid=' . $customerid;
           $customer_result = mysqli_query($connection, $customer_query);
           # Check for if it worked
           if(!$customer_result) {
