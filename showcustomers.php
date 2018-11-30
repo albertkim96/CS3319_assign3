@@ -65,19 +65,24 @@ File: showcustomers.php -->
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
-          echo $customerid;
           $quantity = $_POST["quantity"];
-          $query = 'SELECT quantity FROM purchase WHERE customerID=' . $customerid;
+          # Query to get product name and quantity
+          $query = 'SELECT productDescription, quantity FROM purchase INNER JOIN products
+          ON products.productID=purchase.productID INNER JOIN customers ON
+          customers.customerID=purchase.customerID WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
+          # Check if query worked
           if (!$result) {
             die("Query failed");
           }
           echo '<h2> Products: </h2>';
+
           echo '<ul>';
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li>' . $quantity . '</li>';
+            echo '<li>' . $_POST["productDescription"] . ', ' . $quantity . '</li>';
           }
           echo '</ul>';
+
           mysqli_free_result($result);
         }
         mysqli_close($connection);
