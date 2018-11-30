@@ -44,7 +44,7 @@
                 echo '<select name="customerlist">';
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value =' . $row["customerID"] . '>' . $row["lName"] . ', ' . $row["fName"] . ' - ' . $row["phoneNumber"] . '</option>';
+                    echo '<option value =' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . ' - ' . $row["phoneNumber"] . '</option>';
                 }
                 echo '</select';
             ?>
@@ -53,6 +53,20 @@
         <input type="text" name="newCustomerNumber" placeholder="Input new phone number"><br>
         <input type="submit" value="Update customer's phone number">
 
+        <?php
+          if (isset(_$POST["submit"])) {
+            $newPhoneNumber = $_POST["newCustomerNumber"];
+            $query = 'UPDATE customers SET phoneNumber' . $newPhoneNumber . 'WHERE customerID=' . $_POST["customerlist"];
+            $result = mysqli_query($connection, $query);
+            if (!$result) {
+              die("Query failed");
+            }
+            else {
+              echo 'Query success';
+            }
+          }
+          mysqli_close($connection);
+        ?>
 
     </div>
 
