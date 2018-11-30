@@ -65,6 +65,7 @@ File: showcustomers.php -->
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
+          echo $customerid;
           $quantity = $_POST["quantity"];
           $query = 'SELECT quantity FROM purchase WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
