@@ -48,16 +48,15 @@
                 }
                 echo '</select';
             ?>
+            <input type="text" name="newCustomerNumber" placeholder="xxx-xxxx"><br>
+            <input type="submit" name="submit">
         </form>
-
-        <input type="text" name="newCustomerNumber" placeholder="Input new phone number"><br>
-        <input type="submit" name="submit" value="Update customer's phone number">
 
         <?php
           if (isset($_POST["submit"])) {
             $newPhoneNumber = $_POST["newCustomerNumber"];
             $customerid = $_POST["customerlist"];
-            $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . 'WHERE customerID=' . $customerid;
+            $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . ' WHERE customerID=' . $customerid;
             $result = mysqli_query($connection, $query);
             if (!$result) {
               die("Query failed");
