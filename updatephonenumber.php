@@ -44,10 +44,10 @@
                 echo '<select name="customerlist">';
 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value =' . $row["customerID"] . ' ' . $row["lName"] . ', ' . $row["fName"] . ' - ' . $row["phoneNumber"] . '</option>';
+                    echo '<option value =' . $row["customerID"] . '>' . $row["lName"] . ', ' . $row["fName"] . ' - ' . $row["phoneNumber"] . '</option>';
                 }
                 echo '</select';
-            ?>l
+            ?>
         </form>
 
         <input type="text" name="newCustomerNumber" placeholder="Input new phone number"><br>
