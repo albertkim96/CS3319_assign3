@@ -58,7 +58,7 @@
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
-          $query = 'SELECT productDescription, quantity FROM products INNER JOIN purchase ON
+          $query = 'SELECT productDescription FROM products INNER JOIN purchase ON
           products.productID=purchase.productID WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
           if (!$result) {
