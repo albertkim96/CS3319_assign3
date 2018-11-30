@@ -46,7 +46,7 @@ File: newpurchase.php -->
                   die("Customer query did not work");
                 }
 
-                echo '<select>';
+                echo '<select name="customer">';
                 # Loops through list and shows them as options
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
@@ -63,7 +63,7 @@ File: newpurchase.php -->
                     die("Products query did not work");
                 }
 
-                echo '<select>';
+                echo '<select name="product">';
                 # Loops through list of products and makes them options of our selection
                 while ($row = mysqli_fetch_assoc($product_result)) {
                     echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ' ' . $row["costPerItem"] . '</option>';
@@ -76,9 +76,20 @@ File: newpurchase.php -->
         <input type="submit" value="Insert Quantity">
   		</form>
 
-      
+      <?php
+        if (isset($_POST["submit"])) {
+          $customerName = $_POST["customer"];
+          $product = $_POST["product"];
+          $quantity = $_POST["quantity"];
+          $query = 'SELECT COUNT(*) AS count, quantity FROM purchase WHERE productID=' . $product . ' AND customerID=' . $customerName;
+          $result = mysqli_query($connection, $query);
+          if (!$result) {
+            die("Query failed");
+          }
 
-
+          
+        }
+      ?>
     </div>
 
 

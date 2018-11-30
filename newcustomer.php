@@ -13,11 +13,16 @@
 
     <div id="navigation-bar">
         <ul>
-            <li><a class="active" href="index.php">Go Home</a></li>
+            <li><a href="index.php">Go Home</a></li>
             <li><a href="showcustomers.php">View Customer Purchases</a></li>
             <li><a href="showproducts.php">View Products</a></li>
             <li><a href="newpurchase.php">Insert a new Purchase</a></li>
-            <li><a href="newcustomer.php">Adding a customer</a></li>
+            <li><a class="active" href="newcustomer.php">Adding a customer</a></li>
+            <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
+            <li><a href="deletecustomer.php">Delete a customer</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more</a></li>
+            <li><a href="productsnotpurchased.php">List products not purchased</a></li>
+            <li><a href="totalnumber.php">List total number of purchases for a product</a></li>
         </ul>
     </div>
 
@@ -26,7 +31,7 @@
     ?>
 
     <div id="container">
-        <form action="insertnewcustomer.php" method="post">
+        <form action="#" method="post">
 
         <!-- Generates new ID for the customer -->
         <?php
@@ -57,7 +62,7 @@
             $result = mysqli_query($connection, $query);
             # Checks if query successful
             if (!$result) {
-                die("Something went wrong looking for agents!");
+                die("Query failed");
             }
             # Loops through all rows of agent and adds them as option to the selection
             while ($row = mysqli_fetch_assoc($result)) {
@@ -67,8 +72,35 @@
         <br>
 
         <!-- Button to submit details and create new customer -->
-        <input type="submit" value="Add New Customer" id="submission">
+        <input type="submit" name="newCustomer" value="Add New Customer">
         </form>
+
+        <!-- PHP to insert new customer -->
+      <?php
+        # Checks if the user submitted a new customer
+        if (isset($_POST["newCustomer"])) {
+          # Finds a new customerID and initializes it
+          include 'getcustomerid.php';
+          $customerID = $id;
+          # Variables initializing all new customer attributes
+          $customerFName = $_POST["fName"];
+          $customerLName = $_POST["lName"];
+          $customerAddress = $_POST["city"];
+          $customerPhone = $_POST["phoneNumber"];
+          $customerAgent = $_POST["agentID"];
+          # Query to insert into customer table
+          $query = 'INSERT INTO customer VALUES (' . $customerFName . ',' .
+            $customerLName . ',"' . $customerAddress . '","' . $customerPhone . '","' .
+            $customerID . '","' . $customerAgent . '")';
+          $insert_result = mysqli_query($connection, $query);
+          # Checks if the query was successful
+          if ( !$insert_result ) {
+            die("Query to insert customer failed: " . mysqli_error($connection));
+          }
+          # Displays to user that they have added a new customer
+          echo '<script type="text/javascript">alert("Customer Added!");</script>';
+        }
+      ?>
 
     </div>
 
