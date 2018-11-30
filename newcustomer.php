@@ -41,8 +41,8 @@ File: newcustomer.php -->
         <!-- Generates new ID for the customer -->
         <?php
             include 'getcustomerid.php';
-            echo '<tr><td><label for="ID"> ID:</label>';
-            echo '<td><b>' . $id  . '</b>';
+            echo '<label for="ID"> ID:</label>';
+            echo '<b>' . $id  . '</b>';
             echo '<br>'
         ?>
         <!-- First name, Last name, city, phone number, agent -->
@@ -74,12 +74,12 @@ File: newcustomer.php -->
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
         ?>
+        <!-- User has to make sure to submit in order to enter the new customer -->
         <br>
-
-        <!-- Button to submit details and create new customer -->
         <input type="submit" name="newCustomer" value="Add New Customer">
         </form>
 
+      <!-- After the user presses submit, it leads to this part -->
       <?php
         if (isset($_POST["newCustomer"])) {
           include 'getcustomerid.php';

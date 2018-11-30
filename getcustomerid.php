@@ -1,5 +1,10 @@
+
 <?php
-    $query = "SELECT MAX(customerID) as maxID from customers";
+  include connecttodb.php;
+?>
+
+<?php
+    $query = "SELECT MAX(customerID) as id from customers";
     $result = mysqli_query($connection, $query);
 
     if (!$result) {
@@ -7,5 +12,5 @@
     }
 
     $row = mysqli_fetch_assoc($result);
-    $id = intval($row["maxID"]) + 2;
+    $id = intval($row["id"]) + 2;
 ?>
