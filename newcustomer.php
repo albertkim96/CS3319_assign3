@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: newcustomer.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,21 +45,21 @@
             echo '<td><b>' . $id  . '</b>';
             echo '<br>'
         ?>
+        <!-- First name, Last name, city, phone number, agent -->
+        <label for="fName">First Name:</label>
+        <input type="text" name="firstName" placeholder="Albert">
 
-        <tr><td><label for="fName">First Name:</label> <!-- FIRST NAME -->
-        <td><input type="text" name="firstName" placeholder="Albert">
+        <label for="lName">Last Name:</label>
+        <input type="text" name="lastName" placeholder="Kim"><br>
 
-        <tr><td><label for="lName">Last Name:</label> <!-- LAST NAME -->
-        <td><input type="text" name="lastName" placeholder="Kim"><br>
+        <label for="city">City:</label>
+        <input type="text" name="city" placeholder="France"><br>
 
-        <tr><td><label for="city">Address:</label> <!-- ADDRESS -->
-        <td><input type="text" name="address" placeholder="France"><br>
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" name="pNumber" placeholder="***-****"><br>
 
-        <tr><td><label for="phoneNumber">Phone Number:</label> <!-- PHONE NUMBER -->
-        <td><input type="text" name="pNumber" placeholder="***-****"><br>
-
-        <tr><td><label for="agentID">Agent:</label> <!-- AGENT SELECTION -->
-        <td><select name="agent">
+        <label for="agentID">Agent:</label>
+        <select name="agent">
 
         <?php
         # Query to find all agents from agent table

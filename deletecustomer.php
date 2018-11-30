@@ -56,9 +56,11 @@ File: deletecustomer.php -->
 
         </form>
 
+        <!-- Checks if the user has submitted from the form -->
         <?php
           if (isset($_POST["delete"])) {
             $customerID = $_POST["deleteCustomer"];
+            # query to delete
             $query = 'DELETE FROM customers where customerID=' . $customerID;
             $result = mysqli_query($connection, $query);
             if (!$result) {
