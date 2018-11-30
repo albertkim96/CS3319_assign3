@@ -93,7 +93,7 @@ File: newpurchase.php -->
 
           # If the customer has not purchased this product yet, then add it onto the purchase table
           if ($row["count"] != 1) {
-            $insert = "INSERT INTO purchase VALUES (' . $customerName . ', ' . $product . ', ' . $quantity . ')";
+            $insert = "INSERT INTO purchase VALUES ('$customerName', '$product', '$quantity')";
             $insert_result = mysqli_query($connection, $insert);
             if (!$insert_result) {
               die("Insert Query has failed");
