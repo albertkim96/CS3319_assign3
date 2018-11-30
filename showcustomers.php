@@ -75,11 +75,12 @@ File: showcustomers.php -->
             die("View Query failed");
           }
 
-          $customer_query = 'SELECT productDescription, quantity from totalProducts c
-          INNER JOIN customers a on a.customerID=c.customerid where c.customerid=' . $customerid;
+
+          $customer_query = "SELECT productDescription, quantity from totalProducts c
+          INNER JOIN customers a on a.customerID=c.customerid where c.customerid=" . $customerid;
           $customer_result = mysqli_query($connection, $customer_query);
           if(!$customer_result) {
-            die("Query failed!");
+            die("Final Query failed!");
           }
           echo '<h2> Products: </h2>';
 
