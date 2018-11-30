@@ -9,7 +9,7 @@
     echo '<select name="choosecustomer">';
     while ($row = mysqli_fetch_assoc($result)) {
       echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . ', '
-      . $row["city"] . ', Agent: ' . '<b>' . $row["firstName"] . ' ' . $row["lastName"] . '</b>'
+      . $row["city"] . ', Agent: ' . '<b>' . $row["firstName"] . ' ' . $row["lastName"] . '</b>' .
       ' - ' . $row["phoneNumber"] . '</option>';
     }
     echo '</select>';
