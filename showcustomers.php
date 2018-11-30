@@ -40,7 +40,7 @@
             $query = "SELECT * from customers INNER JOIN agents ON customers.agentID=agents.agentID ORDER BY lName";
             $result = mysqli_query($connection,$query);
             if (!$result) {
-                die("databases query failed.");
+                die("Query failed!");
             }
             echo '<select name="choosecustomer">';
             while ($row = mysqli_fetch_assoc($result)) {
@@ -58,7 +58,7 @@
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
-          $query = 'SELECT productDescription, quantity FROM purchase INNER JOIN products ON
+          $query = 'SELECT productDescription, quantity FROM products INNER JOIN purchase ON
           products.productID=purchase.productID WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
           if (!$result) {
