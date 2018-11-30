@@ -83,11 +83,11 @@
           include 'getcustomerid.php';
           $customerID = $id;
           # Variables initializing all new customer attributes
-          $customerFName = $_POST["fName"];
-          $customerLName = $_POST["lName"];
-          $customerAddress = $_POST["city"];
-          $customerPhone = $_POST["phoneNumber"];
-          $customerAgent = $_POST["agentID"];
+          $customerFName = $_POST["firstName"];
+          $customerLName = $_POST["lastName"];
+          $customerAddress = $_POST["address"];
+          $customerPhone = $_POST["pNumber"];
+          $customerAgent = $_POST["agent"];
           # Query to insert into customer table
           $query = 'INSERT INTO customer VALUES (' . $customerFName . ',' .
             $customerLName . ',"' . $customerAddress . '","' . $customerPhone . '","' .
