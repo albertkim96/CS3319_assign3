@@ -93,8 +93,8 @@ File: newpurchase.php -->
 
           # If the customer has not purchased this product yet, then add it onto the purchase table
           if ($row["count"] != 1) {
-            $insert = 'INSERT INTO purchase VALUES (' . $customerName . ', ' . $product . ', ' . $quantity . ')';
-            $insert_result = mysqli_query($connection, $query);
+            $insert = "INSERT INTO purchase VALUES (' . $customerName . ', ' . $product . ', ' . $quantity . ')";
+            $insert_result = mysqli_query($connection, $insert);
             if (!$insert_result) {
               die("Insert Query has failed");
             }
@@ -103,10 +103,13 @@ File: newpurchase.php -->
           else {
             $newTotal = $row["quantity"] + $quantity;
             $add_query = 'UPDATE purchase SET quantity=' . $newTotal . 'WHERE customerid=' . $customerName . 'AND productID=' . $product;
+            $add_result = mysqli_query($connection, $add_query);
+            if(!$add_result) {
+              die("Add query has failed");
+            }
           }
-
+          # Disconnect from database
           mysqli_close($connection);
-
         }
       ?>
     </div>
