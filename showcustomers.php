@@ -87,7 +87,7 @@ File: showcustomers.php -->
 
           echo '<ul>';
           while ($row = mysqli_fetch_assoc($customer_result)) {
-            echo '<li>' . $_POST["productDescription"] . ', ' . $quantity . '</li>';
+            echo '<li>' . $_POST["productDescription"] . ', ' . $_POST["quantity"] . '</li>';
           }
           echo '</ul>';
 
