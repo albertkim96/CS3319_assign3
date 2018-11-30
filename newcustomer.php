@@ -31,20 +31,31 @@ File: newcustomer.php -->
         </ul>
     </div>
 
+    <!-- Include database-->
     <?php
         include "connecttodb.php";
     ?>
 
     <div id="container">
-        <form action="#" method="post">
+      <form action="#" method="post">
 
         <!-- Generates new ID for the customer -->
         <?php
-            include 'getcustomerid.php';
+            # Use the max customerid and increment from there to get a new customer id"
+            $query = "SELECT MAX(customerID) as id from customers";
+            $result = mysqli_query($connection, $query);
+
+            if (!$result) {
+                die("Query did not work");
+            }
+
+            $row = mysqli_fetch_assoc($result);
+            $id = intval($row["id"]) + 2;
             echo '<label for="ID"> ID:</label>';
             echo '<b>' . $id  . '</b>';
             echo '<br>'
         ?>
+
         <!-- First name, Last name, city, phone number, agent -->
         <label for="fName">First Name:</label>
         <input type="text" name="firstName" placeholder="Albert">
@@ -77,12 +88,11 @@ File: newcustomer.php -->
         <!-- User has to make sure to submit in order to enter the new customer -->
         <br>
         <input type="submit" name="newCustomer" value="Add New Customer">
-        </form>
+      </form>
 
       <!-- After the user presses submit, it leads to this part -->
       <?php
         if (isset($_POST["newCustomer"])) {
-          include 'getcustomerid.php';
           $customerID = $id;
           $customerFName = $_POST["firstName"];
           $customerLName = $_POST["lastName"];
