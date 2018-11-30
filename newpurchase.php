@@ -89,9 +89,10 @@ File: newpurchase.php -->
           if (!$result) {
             die("Query failed");
           }
+          $row = mysqli_fetch_assoc($result);
 
           # If the customer has not purchased this product yet, then add it onto the purchase table
-          if ($result["count"] != 1) {
+          if ($row["count"] != 1) {
             $insert = "INSERT INTO purchase VALUES ('$customerName', '$product', '$quantity')";
             $insert_result = mysqli_query($connection, $query);
             if (!$insert_result) {
