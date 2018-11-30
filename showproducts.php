@@ -44,14 +44,14 @@ File: showproducts.php -->
         <form action="#" method="post">
           <!-- Ask if they want to do it through the cost or name -->
           <select name="order">
-            <option value="cost">Cost</option>
-            <option value="name">Name</option>
+            <option value="costPerItem">Cost</option>
+            <option value="productDescription">Name</option>
           </select>
 
           <!-- Ask if they want it to do it through an ascending or descending order -->
           <select name="ascdesc">
-            <option value="ascending"> Ascending</option>
-            <option value="descending"> Descending</option>
+            <option value="ASC"> Ascending</option>
+            <option value="DESC"> Descending</option>
           </select>
 
           <input name="show" type="submit" value="Show">
