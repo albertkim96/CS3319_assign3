@@ -107,8 +107,6 @@ File: newcustomer.php -->
           if (!$insert_result) {
             die("Query to insert customer failed: " . mysqli_error($connection));
           }
-          # Displays to user that they have added a new customer
-          echo '<script type="text/javascript">alert("Customer Added!");</script>';
         }
       ?>
 

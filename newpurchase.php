@@ -53,6 +53,7 @@ File: newpurchase.php -->
                 }
                 echo '</select>';
             ?>
+
             <h2> Please choose your product </h2>
             <?php
                 # Get product database information
@@ -70,24 +71,41 @@ File: newpurchase.php -->
                 }
                 echo '</select>';
   			    ?>
-
         <br>
   			<input type="text" name="quantity" placeholder="Quantity">
-        <input type="submit" value="Insert Quantity">
+        <input type="submit" name="submit" value="Insert Quantity">
   		</form>
 
       <?php
         if (isset($_POST["submit"])) {
+          # Get all the variables: Customer ID, product, and quantity
           $customerName = $_POST["customer"];
           $product = $_POST["product"];
           $quantity = $_POST["quantity"];
-          $query = 'SELECT COUNT(*) AS count, quantity FROM purchase WHERE productID=' . $product . ' AND customerID=' . $customerName;
+          # Query to get count if the customer has already purchased the product, and to get the quantity
+          $query = 'SELECT COUNT(*) as count, quantity FROM purchase WHERE productID=' . $product . ' AND customerID=' . $customerName;
           $result = mysqli_query($connection, $query);
+          # Check if query works
           if (!$result) {
             die("Query failed");
           }
 
-          
+          # If the customer has not purchased this product yet, then add it onto the purchase table
+          if ($query["count"] != 1) {
+            $insert = "INSERT INTO purchase VALUES ('$customerName', '$product', '$quantity')";
+            $insert_result = mysqli($connection, $query);
+            if (!$insert_result) {
+              die("Insert Query has failed");
+            }
+          }
+          # If the customer has purchased this product already
+          else {
+            $newTotal = $query["quantity"] + $quantity;
+            $add_query = 'UPDATE purchase SET quantity=' . $newTotal . 'WHERE customerid=' . $customerName . 'AND productID=' . $product;
+          }
+
+          mysqli_close($connection);
+
         }
       ?>
     </div>
