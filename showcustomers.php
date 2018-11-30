@@ -65,6 +65,7 @@ File: showcustomers.php -->
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
+          $quantity = $_POST["quantity"];
           $query = 'SELECT quantity FROM purchase';
           $result = mysqli_query($connection, $query);
           if (!$result) {
@@ -73,7 +74,7 @@ File: showcustomers.php -->
           echo '<h2> Products: </h2>';
           echo '<ul>';
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li>' . $_POST["productDescription"] . '</li>';
+            echo '<li>' . $quantity . '</li>';
           }
           echo '</ul>';
           mysqli_free_result($result);
