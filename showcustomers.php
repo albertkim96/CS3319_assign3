@@ -78,6 +78,7 @@ File: showcustomers.php -->
 
           echo '<h2> Products: </h2>';
 
+          # List all the products and the amount that each customer bought
           echo '<ul>';
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<li><b>' . $row["productDescription"] . '</b>. Amount: <b>' . $row["quantity"] . '</b></li>';
@@ -86,12 +87,9 @@ File: showcustomers.php -->
 
           mysqli_free_result($result);
         }
+        # Close connection after
         mysqli_close($connection);
       ?>
     </div>
 </body>
 </html>
-
-<!-- INNER JOIN customers customers.customerID=purchase.customerI -->
-<!-- INNER JOIN purchase ON
-products.productID=purchase.productID -->

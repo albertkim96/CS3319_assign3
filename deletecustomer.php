@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: deletecustomer.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +30,14 @@
         </ul>
     </div>
 
+    <!-- Include database -->
     <?php
         include "connecttodb.php";
     ?>
 
     <div id="container">
         <form action="#" method="post">
+            <!-- Include customers database and show user all the customers -->
             <?php
                 $query = 'SELECT * FROM customers';
                 $result = mysqli_query($connection, $query);
@@ -44,7 +51,7 @@
                 }
                 echo '</select><br>';
             ?>
-
+            <br>
             <input type="submit" name="delete" value="Delete">
 
         </form>
@@ -52,12 +59,13 @@
         <?php
           if (isset($_POST["delete"])) {
             $customerID = $_POST["deleteCustomer"];
-            $delete = 'DELETE FROM customer where customerID=' . $customerID;
-            if (mysqli_query($connection, $delete)) {
-              echo 'Deleted';
+            $query = 'DELETE FROM customers where customerID=' . $customerID;
+            $result = mysqli_query($connection, $query);
+            if (!$result) {
+              die ("Query failed.");
             }
             else {
-              die ("Query failed.");
+              echo 'Deleted';
             }
           }
         ?>
