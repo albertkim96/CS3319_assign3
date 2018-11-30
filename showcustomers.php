@@ -71,9 +71,11 @@ File: showcustomers.php -->
             die("Query failed");
           }
           echo '<h2> Products: </h2>';
+          echo '<ul>';
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<li>' . $_POST["productDescription"] . '</li>';
           }
+          echo '</ul>';
           mysqli_free_result($result);
         }
         mysqli_close($connection);
