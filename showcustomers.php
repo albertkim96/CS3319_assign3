@@ -85,12 +85,12 @@ File: showcustomers.php -->
           echo '<h2> Products: </h2>';
 
           echo '<ul>';
-          while ($row = mysqli_fetch_assoc($result)) {
+          while ($row = mysqli_fetch_assoc($customer_result)) {
             echo '<li>' . $_POST["productDescription"] . ', ' . $quantity . '</li>';
           }
           echo '</ul>';
 
-          mysqli_free_result($result);
+          mysqli_free_result($customer_result);
         }
         mysqli_close($connection);
       ?>
