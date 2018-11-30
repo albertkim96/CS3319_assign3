@@ -54,7 +54,7 @@
         <input type="submit" name="submit" value="Update customer's phone number">
 
         <?php
-          if (isset(_$POST["submit"])) {
+          if (isset($_POST["submit"])) {
             $newPhoneNumber = $_POST["newCustomerNumber"];
             $customerid = $_POST["customerlist"];
             $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . 'WHERE customerID=' . $customerid;
