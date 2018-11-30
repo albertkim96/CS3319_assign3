@@ -5,7 +5,7 @@
     <title>Insert New Customer</title>
 </head>
 <body>
-    <?php 
+    <?php
         include "connecttodb.php";
     ?>
 
@@ -13,7 +13,7 @@
         include "getcustomerid.php";
         $customerID = $id;
 
-        # Setting up variables for new customers 
+        # Setting up variables for new customers
         $customerFirstName = $_POST["fName"];
         $customerLastName =$_POST["lName"];
         $customerCity = $_POST["city"];
@@ -21,19 +21,18 @@
         $customerAgent = $_POST["agentID"];
 
         $query = 'INSERT INTO customers VALUES ("' . $customerFirstName . '","' . $customerLastName . '","' . $customerCity . '","'
-            . $customerPhoneNumber . ',' . $customerAgent . ');';
+            . $customerPhoneNumber . ',' . $customerAgent . ')';
 
         if (!mysqli_query($connection, $query)) {
-            die ("Error while trying to add new customer". mysqli_error($connection));
+            die ("Query failed!");
         }
         else {
             header('Location: newcustomer.php');
         }
     ?>
-    
+
     <?php
         mysqli_close($connection);
     ?>
 </body>
 </html>
-
