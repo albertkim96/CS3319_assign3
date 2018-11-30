@@ -67,7 +67,7 @@ File: showcustomers.php -->
           $customerid = $_POST["choosecustomer"];
           $quantity = $_POST["quantity"];
           # Query to get product name and quantity
-          $query = 'SELECT productDescription, quantity
+          $query = 'SELECT customerid, productDescription, quantity
           from purchase c INNER JOIN products b ON b.productID=c.productID
           INNER JOIN customers a ON a.customerID=c.customerid WHERE c.customerid=' . $customerid;
           $result = mysqli_query($connection, $query);
@@ -80,7 +80,7 @@ File: showcustomers.php -->
 
           echo '<ul>';
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<li>' . $_POST["productDescription"] . ', ' . $_POST["quantity"] . '</li>';
+            echo '<li><b>' . $row["productDescription"] . '</b>. Amount: <b>' . $row["quantity"] . '</b></li>';
           }
           echo '</ul>';
 
