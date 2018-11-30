@@ -96,12 +96,12 @@ File: newcustomer.php -->
           $customerID = $id;
           $customerFName = $_POST["firstName"];
           $customerLName = $_POST["lastName"];
-          $customerAddress = $_POST["address"];
+          $customerCity = $_POST["address"];
           $customerPhone = $_POST["pNumber"];
           $customerAgent = $_POST["agent"];
           # Query to insert into customer table
-          $query = "INSERT INTO customers VALUES ('$customerID', '$customerFName',
-          '$customerLName', '$customerAddress', '$customerPhone', '$customerAgent')";
+          $query = "INSERT INTO customers VALUES ('$customerFName', '$customerLName',
+          '$customerCity', '$customerPhone', '$customerID', '$customerAgent')";
           $insert_result = mysqli_query($connection, $query);
           # Checks if the query was successful
           if (!$insert_result) {
