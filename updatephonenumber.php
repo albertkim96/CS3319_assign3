@@ -51,7 +51,7 @@
         </form>
 
         <input type="text" name="newCustomerNumber" placeholder="Input new phone number"><br>
-        <input type="submit" value="Update customer's phone number">
+        <input type="submit" name="submit" value="Update customer's phone number">
 
         <?php
           if (isset(_$POST["submit"])) {
