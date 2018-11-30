@@ -37,7 +37,7 @@
                 # Checks if query was successful
                 if (!$result) {
                     die("Query did not work");
-
+                }
                 echo '<select name="deleteCustomer">';
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] .  '</option>';
