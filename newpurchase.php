@@ -65,13 +65,13 @@ File: newpurchase.php -->
 
                 echo '<select>';
                 # Loops through list of products and makes them options of our selection
-                while ($row = mysqli_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_assoc($product_query)) {
                     echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ' ' . $row["costPerItem"] . '</option>';
                 }
                 echo '</select>';
-  			?>
+  			    ?>
 
-  			
+
   			<input type="text" name="quantity" placeholder="Quantity">
         <input type="submit" value="Insert Quantity">
   		</form>
