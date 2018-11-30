@@ -69,7 +69,7 @@ File: showcustomers.php -->
           # Query to get product name and quantity
           $query = 'SELECT productDescription, quantity
           from purchase c INNER JOIN products b ON b.productID=c.productID
-          INNER JOIN customers a ON a.customerID=c.customerid WHERE c.customerid' . $customerid;
+          INNER JOIN customers a ON a.customerID=c.customerid WHERE c.customerid=' . $customerid;
           $result = mysqli_query($connection, $query);
           # Check if query worked
           if (!$result) {
