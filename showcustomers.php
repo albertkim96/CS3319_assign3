@@ -84,7 +84,7 @@ File: showcustomers.php -->
           }
           echo '</ul>';
 
-          mysqli_free_result($customer_result);
+          mysqli_free_result($result);
         }
         mysqli_close($connection);
       ?>
