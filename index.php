@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: index.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"></head>
 <body>
 
+    <!-- Navigation bar -->
     <h1>Assignment 3 CS3319 Database</h1>
     Select your options:
 

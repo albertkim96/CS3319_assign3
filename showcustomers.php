@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: showcustomers.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,8 +38,9 @@
     <?php
         include "connecttodb.php";
     ?>
+
     <div id="container">
-      <!-- Show all the customers in a block format with their names, ID, city, phone number and agent information -->
+      <!-- Show all the customers in a drop down format with all of their information -->
       <form action="#" method="post">
           <?php
             $query = "SELECT * from customers INNER JOIN agents ON customers.agentID=agents.agentID ORDER BY lName";
@@ -50,14 +56,16 @@
             }
             echo '</select>';
           ?>
+
           <br>
           <input type="submit" name="submit">
       </form>
 
+      <!-- After user submits from which customer they selected -->
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
-          $query = 'SELECT quantity FROM purchase WHERE customerID=' . $customerid;
+          $query = 'SELECT quantity FROM purchase';
           $result = mysqli_query($connection, $query);
           if (!$result) {
             die("Query failed");
