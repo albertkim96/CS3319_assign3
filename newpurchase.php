@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: newpurchase.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,44 +15,51 @@
     <h1>Assignment 3 CS3319 Database</h1>
     Select your options:
 
-    <div id="navigation-bar"> 
+    <div id="navigation-bar">
         <ul>
-            <li><a class="active" href="index.php">Go Home</a></li>
+            <li><a href="index.php">Go Home</a></li>
             <li><a href="showcustomers.php">View Customer Purchases</a></li>
             <li><a href="showproducts.php">View Products</a></li>
-            <li><a href="newpurchase.php">Insert a new Purchase</a></li>
+            <li><a class="active" href="newpurchase.php">Insert a new Purchase</a></li>
+            <li><a href="newcustomer.php">Adding a customer</a></li>
+            <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
+            <li><a href="deletecustomer.php">Delete a customer</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more</a></li>
+            <li><a href="productsnotpurchased.php">List products not purchased</a></li>
+            <li><a href="totalnumber.php">List total number of purchases for a product</a></li>
         </ul>
     </div>
 
     <?php
         include "connecttodb.php";
-    ?> 
+    ?>
 
     <div id="container">
         <form action="#" method="post">
             <?php
                 # Include the customer information
-                include "getcustomerinfo.php";
-                
+                $query = 'SELECT * FROM customers';
+                $result = mysqli_query($connection, $query);
+                # Check if query worked
+                if (!$result) {
+                  die("Customer query did not work");
+                }
+
                 # Get product database information
                 $product_query = 'SELECT * FROM products';
                 $product_result = mysqli_query($connection, $product_query);
-
                 # Check if query worked
                 if (!$product_result) {
-                    die("Query did not work");
+                    die("Products query did not work");
                 }
-                # Starts a selection operation to pick from a list of customers
-                echo '<p style="display: block; margin-bottom: 20px;"> CUSTOMER </p><select name="customer" id="customerSelect">';
+
+                echo '<select>';
                 # Loops through list of customers and makes them options of our selection
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value=' . $row["CustomerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
+                    echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
                 }
-                # End of select statement
-                echo '</select>';  
+                echo '</select>';
 
-                # Start of the product choosing section
-                echo '<p style="margin-bottom: 30px; margin-top: 30px;"> PRODUCTS </p>';
                 # Putting all the radio buttons into an unordered list
                 echo '<ul>';
                 # Loops through list of products and makes them options of our selection
@@ -80,10 +92,9 @@
             mysqli_close($connection);
         ?-->
 
-                
+
     </div>
 
 
 </body>
 </html>
-

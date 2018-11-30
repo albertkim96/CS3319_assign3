@@ -30,9 +30,6 @@ File: showproducts.php -->
         </ul>
     </div>
 
-    <h2> Here is the list of products and their information along with their agent </h2>
-    <h3> Click on the buttons below if you want it to be ascending/descending </h3>
-
     <!-- Connect to database -->
     <?php
         include "connecttodb.php";
@@ -58,7 +55,9 @@ File: showproducts.php -->
         </form>
 
         <?php
+          # If the user pressed "Show"
           if (isset($_POST["show"])) {
+            # Reorder the products with depending on the user's choice
             $query = 'SELECT * from products ORDER BY ' . $_POST["order"] . ' ' . $_POST["ascdesc"];
             $result = mysqli_query($connection, $query);
             if (!$result) {
