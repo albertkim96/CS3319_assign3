@@ -89,12 +89,11 @@
           $customerPhone = $_POST["pNumber"];
           $customerAgent = $_POST["agent"];
           # Query to insert into customer table
-          $query = 'INSERT INTO customers VALUES (' . $customerFName . ',' .
-            $customerLName . ',"' . $customerAddress . '","' . $customerPhone . '","' .
-            $customerID . '","' . $customerAgent . '")';
+          $query = 'INSERT INTO customers VALUES ('$customerID', '$customerFName',
+          '$customerLName', '$customerAddress', '$customerPhone', '$customerAgent')';
           $insert_result = mysqli_query($connection, $query);
           # Checks if the query was successful
-          if ( !$insert_result ) {
+          if (!$insert_result) {
             die("Query to insert customer failed: " . mysqli_error($connection));
           }
           # Displays to user that they have added a new customer
