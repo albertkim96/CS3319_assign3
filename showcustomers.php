@@ -45,8 +45,8 @@
             echo '<select name="choosecustomer">';
             while ($row = mysqli_fetch_assoc($result)) {
               echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . ', '
-              . $row["city"] . ', Agent: ' . '<b>' . $row["firstName"] . ' ' . $row["lastName"] . '</b>' .
-              ' - ' . $row["phoneNumber"] . '</option>';
+              . $row["city"] . ', ' . $row["phoneNumber"] . ', Agent: ' . '<b>' . $row["firstName"] . ' ' . $row["lastName"] . '</b>' .
+              '</option>';
             }
             echo '</select>';
           ?>
@@ -57,8 +57,7 @@
       <?php
         if (isset($_POST["submit"])) {
           $customerid = $_POST["choosecustomer"];
-          $query = 'SELECT productDescription FROM products INNER JOIN purchase ON
-          products.productID=purchase.productID WHERE customerID=' . $customerid;
+          $query = 'SELECT quantity FROM purchase WHERE customerID=' . $customerid;
           $result = mysqli_query($connection, $query);
           if (!$result) {
             die("Query failed");
@@ -67,6 +66,7 @@
           while ($row = mysqli_fetch_assoc($result)) {
             echo '<li>' . $_POST["productDescription"] . '</li>';
           }
+          mysqli_free_result($result);
         }
         mysqli_close($connection);
       ?>
@@ -75,3 +75,5 @@
 </html>
 
 <!-- INNER JOIN customers customers.customerID=purchase.customerI -->
+<!-- INNER JOIN purchase ON
+products.productID=purchase.productID -->
