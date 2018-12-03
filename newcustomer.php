@@ -58,16 +58,16 @@ File: newcustomer.php -->
 
         <!-- First name, Last name, city, phone number, agent -->
         <label for="fName">First Name:</label>
-        <input type="text" name="firstName" placeholder="Albert"><br>
+        <input type="text" name="firstName"><br>
 
         <label for="lName">Last Name:</label>
-        <input type="text" name="lastName" placeholder="Kim"><br>
+        <input type="text" name="lastName"><br>
 
         <label for="city">City:</label>
-        <input type="text" name="city" placeholder="France"><br>
+        <input type="text" name="city"><br>
 
         <label for="phoneNumber">Phone Number:</label>
-        <input type="text" name="pNumber" placeholder="***-****"><br>
+        <input type="text" name="pNumber"><br>
 
         <label for="agentID">Agent:</label>
         <select name="agent">
