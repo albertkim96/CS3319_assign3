@@ -9,7 +9,6 @@ File: showproducts.php -->
     <meta charset="utf-8">
     <title>Showing customers Database</title>
     <link rel="stylesheet" type="text/css" href="styling/styles.css">
-    <link rel="stylesheet" type="text/css" href="styling/showProducts_styles.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"></head>
 <body>
 
@@ -65,10 +64,12 @@ File: showproducts.php -->
             }
             # Create a loop to print the data
             while ($row = mysqli_fetch_assoc($result)) {
-              echo '<li>' . $row["productID"] . ' ' . $row["productDescription"] . ' ' . $row["costPerItem"] . ' ' . $row["numberItems"];
+              echo '<li>' . $row["productID"] . ' ' . $row["productDescription"] . ', Cost: ' . $row["costPerItem"] . ', Quantity: ' . $row["numberItems"];
             }
             mysqli_free_result($result);
           }
+          # Close connection after
+          mysqli_close($connection);
         ?>
     </div>
 
