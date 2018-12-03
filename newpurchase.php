@@ -30,6 +30,7 @@ File: newpurchase.php -->
         </ul>
     </div>
 
+    <!-- Connect to database -->
     <?php
         include "connecttodb.php";
     ?>
@@ -38,7 +39,7 @@ File: newpurchase.php -->
         <form action="#" method="post">
             <h2> Please choose your customer </h2>
             <?php
-                # Include the customer information
+                # Include the customer information from customers database
                 $query = 'SELECT * FROM customers';
                 $result = mysqli_query($connection, $query);
                 # Check if query worked
@@ -56,7 +57,7 @@ File: newpurchase.php -->
 
             <h2> Please choose your product </h2>
             <?php
-                # Get product database information
+                # Get product database information from products database
                 $product_query = 'SELECT * FROM products';
                 $product_result = mysqli_query($connection, $product_query);
                 # Check if query worked
@@ -67,15 +68,17 @@ File: newpurchase.php -->
                 echo '<select name="product">';
                 # Loops through list of products and makes them options of our selection
                 while ($row = mysqli_fetch_assoc($product_result)) {
-                    echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ' ' . $row["costPerItem"] . '</option>';
+                    echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ', Cost: ' . $row["costPerItem"] . '</option>';
                 }
                 echo '</select>';
   			    ?>
         <br>
-  			<input type="text" name="quantity" placeholder="Quantity">
-        <input type="submit" name="submit" value="Insert Quantity">
+        <!-- Allow the user to input their amount --> 
+  		<input type="text" name="quantity" placeholder="Quantity">
+        <input type="submit" name="submit" value="Submit">
   		</form>
-
+                
+      <!-- After user submits the quantity along with the customer and the product-->          
       <?php
         if (isset($_POST["submit"])) {
           # Get all the variables: Customer ID, product, and quantity
@@ -83,7 +86,7 @@ File: newpurchase.php -->
           $product = $_POST["product"];
           $quantity = $_POST["quantity"];
           # Query to get count if the customer has already purchased the product, and to get the quantity
-          $query = 'SELECT COUNT(*) as count, quantity FROM purchase WHERE productID=' . $product . ' AND customerID=' . $customerName;
+          $query = 'SELECT COUNT(*) as count, quantity FROM purchase WHERE customerID=' . $customerName . ' AND productID=' . $product;
           $result = mysqli_query($connection, $query);
           # Check if query works
           if (!$result) {
@@ -108,12 +111,11 @@ File: newpurchase.php -->
               die("Add query has failed");
             }
           }
-          # Disconnect from database
+          # Close connection after
           mysqli_close($connection);
         }
       ?>
     </div>
-
 
 </body>
 </html>
