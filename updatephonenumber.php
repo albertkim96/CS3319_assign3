@@ -56,7 +56,6 @@ File: updatephonenumber.php -->
             <br>
             <label for="phoneNumber">Phone Number:</label>
             <input type="text" name="pNumber" placeholder="***-****"><br>
-            <br>
             <input type="submit" name="submit">
         </form>
         
@@ -64,7 +63,7 @@ File: updatephonenumber.php -->
         <?php
           if (isset($_POST["submit"])) {
             # Put the phone number and customer id in the variable
-            $newPhoneNumber = $_POST["pNumber"];
+            $newPhoneNumber = (string)$_POST["pNumber"];
             $customerid = $_POST["customerlist"];
             # Query to update phone number
             $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . ' WHERE customerID=' . $customerid;
