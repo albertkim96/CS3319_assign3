@@ -111,8 +111,6 @@ File: newcustomer.php -->
           if (!$insert_result) {
             die("Query to insert customer failed: " . mysqli_error($connection));
           }
-          mysqli_free_result($insert_result);
-         
         }
          # Close connection after
          mysqli_close($connection);

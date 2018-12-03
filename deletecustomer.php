@@ -70,7 +70,6 @@ File: deletecustomer.php -->
             else {
               echo 'Deleted Customer';
             }
-            mysqli_free_result($result);
           }
           # Close connection after
           mysqli_close($connection);

@@ -76,7 +76,6 @@ File: updatephonenumber.php -->
             else {
               echo 'Query success';
             }
-            mysqli_free_result($result);
           }
           # Close connection after
           mysqli_close($connection);
