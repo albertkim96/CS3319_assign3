@@ -86,7 +86,7 @@ File: totalnumber.php -->
       <!-- List all the product information --> 
       <ul>
         <!-- ID -->
-        <li> Product ID: <b> 
+        <li> Product ID: 
         <?php 
           echo $product_name; 
         ?> 
