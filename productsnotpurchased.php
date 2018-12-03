@@ -51,6 +51,7 @@ File: productsnotpurchased.php -->
             $row["productDescription"] . ', Cost: ' . $row["costPerItem"];
         }
         mysqli_free_result($result);
+        # Close connection after
         mysqli_close($connection);
       ?>
     </div>

@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: totalnumber.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,75 +40,112 @@
 
       <!-- Allowing the user to search/select the product -->
       <form action="#" method="post">
-        <select name="products">
-
+        
         <?php
           $query = 'SELECT * from products';
           $result = mysqli_query($connection, $query);
-
+          # Check if query worked
           if (!$result) {
             die("databases query failed.");
           }
-
+          echo '<select name="products">';
+          # List all the products to the user
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<option value=' . $row["productID"] . '>' . $row["productID"] . ': ' . $row["productDescription"] . '</option>';
+            echo '<option value=' . $row["productID"] . '>' . 'ID: ' . $row["productID"] . ', Name: ' . $row["productDescription"] . '</option>';
           }
 
           echo '</select>';
+          mysqli_free_result($result);
         ?>
-
-        <input type="submit" name="submit" value="Get profit">
+        <input type="submit" name="submit" value="Submit">
 
       </form>
-
+      
+      <!-- After user submits which product they want to get data from -->
       <?php
         if (isset($_POST["submit"])) {
           $product_name = $_POST["products"];
+          # Get the total amount of products
           $query = 'SELECT SUM(quantity) as total FROM purchase WHERE productID=' . $product_name . ' GROUP BY productID';
           $result = mysqli_query($connection, $query);
           $amount = mysqli_fetch_assoc($result);
 
+          # After you get the total amount, get the product information to calculate profit
           $products_query = 'SELECT * FROM products where productID=' . $product_name;
           $products_result = mysqli_query($connection, $products_query);
           $products_amount = mysqli_fetch_assoc($products_result);
 
+          # Get the total amount by multiplying cost and the total amount
           $totalAmount = $products_amount["costPerItem"] * $amount["total"];
+
+          mysqli_free_result($result);
+          mysqli_free_result($products_result);
         }
       ?>
-
+      
+      <!-- List all the product information --> 
       <ul>
-        <li> Product ID: <b> <?php echo $product_name; ?> </b></li>
-        <li> Product Name: <b>
+        <!-- ID -->
+        <li> Product ID: <b> 
+        <?php 
+          echo $product_name; 
+        ?> 
+        </li>
+        
+        <!-- Name -->
+        <li> Product Name:
         <?php
           $query = 'SELECT * from products WHERE productID=' . $product_name;
           $result = mysqli_query($connection, $query);
-
+          # Check if query worked
           if (!$result) {
             die("databases query failed.");
           }
-
+          # Get the product name from the products table
           while ($row = mysqli_fetch_assoc($result)) {
             echo $row["productDescription"];
           }
-        ?> </b></li>
-        <li> Product cost: <b>
+          mysqli_free_result($result);
+        ?> 
+        </li>
+
+        <!-- Cost -->
+        <li> Product cost: 
         <?php
           $query = 'SELECT * from products WHERE productID=' . $product_name;
           $result = mysqli_query($connection, $query);
-
+          # Check if query worked
           if (!$result) {
             die("databases query failed.");
           }
-
+          # Get the cost from the products table;
           while ($row = mysqli_fetch_assoc($result)) {
             echo $row["costPerItem"];
           }
-        ?> </b></li>
-        <li> Total amount: <b> <?php echo $amount["total"]; ?> </b></li>
-        <li> Total profit: <b> <?php echo $totalAmount; ?> </b></li>
+          mysqli_free_result($result);
+        ?> 
+        </li>
+
+        <!-- Total amount -->
+        <li> Total amount: 
+        <?php 
+          # Get the total amount bought from the query
+          echo $amount["total"]; 
+        ?> 
+        </li>
+
+        <!-- Total profit -->
+        <li> Total profit: 
+        <?php 
+          echo $totalAmount; 
+        ?> 
+        </li>
       </ul>
 
-      <?php mysqli_close($connection) ?>
+      <!-- Close the database -->
+      <?php 
+        mysqli_close($connection) 
+      ?>
     </div>
 
 </body>
