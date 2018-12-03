@@ -62,11 +62,10 @@ File: updatephonenumber.php -->
         <!-- After user chooses the customer and which phone number to update it with-->          
         <?php
           if (isset($_POST["submit"])) {
-            # Put the phone number and customer id in the variable
-            $newPhoneNumber = (string)$_POST["pNumber"];
+            # Put the customer id in the variable
             $customerid = $_POST["customerlist"];
             # Query to update phone number
-            $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . ' WHERE customerID=' . $customerid;
+            $query = 'UPDATE customers SET phoneNumber="' . $_POST["pNumber"] . '" WHERE customerID=' . $customerid;
             $result = mysqli_query($connection, $query);
             # Check if query worked
             if (!$result) {
