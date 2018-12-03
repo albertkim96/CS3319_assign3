@@ -45,13 +45,14 @@ File: deletecustomer.php -->
                 if (!$result) {
                     die("Query did not work");
                 }
+                # List all the customers for the user to choose
                 echo '<select name="deleteCustomer">';
                 while ($row = mysqli_fetch_assoc($result)) {
                   echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] .  '</option>';
                 }
                 echo '</select><br>';
+                mysqli_free_result($result);
             ?>
-            <br>
             <input type="submit" name="delete" value="Delete">
 
         </form>
@@ -60,16 +61,19 @@ File: deletecustomer.php -->
         <?php
           if (isset($_POST["delete"])) {
             $customerID = $_POST["deleteCustomer"];
-            # query to delete
+            # Query to delete customer
             $query = 'DELETE FROM customers where customerID=' . $customerID;
             $result = mysqli_query($connection, $query);
             if (!$result) {
               die ("Query failed.");
             }
             else {
-              echo 'Deleted';
+              echo 'Deleted Customer';
             }
+            mysqli_free_result($result);
           }
+          # Close connection after
+          mysqli_close($connection);
         ?>
     </div>
 

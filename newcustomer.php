@@ -53,6 +53,7 @@ File: newcustomer.php -->
             $id = intval($row["id"]) + 2;
             echo '<label for="ID"> ID:</label>';
             echo '<b>' . $id  . '</b>';
+            mysqli_free_result($result);
         ?>
         <br>
 
@@ -84,6 +85,7 @@ File: newcustomer.php -->
             while ($row = mysqli_fetch_assoc($result)) {
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
+            mysqli_free_result($result);
         ?>
 
         <!-- User has to make sure to submit in order to enter the new customer -->
@@ -109,6 +111,7 @@ File: newcustomer.php -->
           if (!$insert_result) {
             die("Query to insert customer failed: " . mysqli_error($connection));
           }
+          mysqli_free_result($insert_result);
           # Close connection after
           mysqli_close($connection);
         }

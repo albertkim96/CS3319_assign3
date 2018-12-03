@@ -53,6 +53,7 @@ File: newpurchase.php -->
                     echo '<option value=' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . '</option>';
                 }
                 echo '</select>';
+                mysqli_free_result($result);
             ?>
 
             <h2> Please choose your product </h2>
@@ -71,7 +72,8 @@ File: newpurchase.php -->
                     echo '<option value=' . $row["productID"] . '>' . $row["productDescription"] . ', Cost: ' . $row["costPerItem"] . '</option>';
                 }
                 echo '</select>';
-  			    ?>
+                mysqli_free_result($product_result);
+  			?>
         <br>
         <!-- Allow the user to input their amount --> 
   		<input type="text" name="quantity" placeholder="Quantity">
@@ -111,6 +113,9 @@ File: newpurchase.php -->
               die("Add query has failed");
             }
           }
+          mysqli_free_result($$result);
+          mysqli_free_result($insert_result);
+          mysqli_free_result($add_result);
           # Close connection after
           mysqli_close($connection);
         }

@@ -52,6 +52,7 @@ File: updatephonenumber.php -->
                     echo '<option value =' . $row["customerID"] . '>' . $row["fName"] . ' ' . $row["lName"] . ' - ' . $row["phoneNumber"] . '</option>';
                 }
                 echo '</select';
+                mysqli_free_result($result);
             ?>
             <br>
             <label for="phoneNumber">Phone Number:</label>
@@ -62,10 +63,11 @@ File: updatephonenumber.php -->
         <!-- After user chooses the customer and which phone number to update it with-->          
         <?php
           if (isset($_POST["submit"])) {
-            # Put the customer id in the variable
+            # Put the phone number and customer id in the variable
+            $newPhoneNumber = (string)$_POST["pNumber"];
             $customerid = $_POST["customerlist"];
             # Query to update phone number
-            $query = 'UPDATE customers SET phoneNumber="' . $_POST["pNumber"] . '" WHERE customerID=' . $customerid;
+            $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . ' WHERE customerID=' . $customerid;
             $result = mysqli_query($connection, $query);
             # Check if query worked
             if (!$result) {
@@ -74,6 +76,7 @@ File: updatephonenumber.php -->
             else {
               echo 'Query success';
             }
+            mysqli_free_result($result);
           }
           # Close connection after
           mysqli_close($connection);
