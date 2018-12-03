@@ -24,7 +24,7 @@ File: showproducts.php -->
             <li><a href="newcustomer.php">Adding a customer</a></li>
             <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
             <li><a href="deletecustomer.php">Delete a customer</a></li>
-            <li><a href="listcustomers.php">List all customers who bought more</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more than a given quantity</a></li>
             <li><a href="productsnotpurchased.php">List products not purchased </a></li>
         </ul>
     </div>
@@ -64,7 +64,7 @@ File: showproducts.php -->
             }
             # Create a loop to print the data
             while ($row = mysqli_fetch_assoc($result)) {
-              echo '<li>' . 'Product ID: ' . $row["productID"] . ', ' . $row["productDescription"] . ', Cost: ' . $row["costPerItem"] . ', Quantity: ' . $row["numberItems"];
+              echo '<li>' . 'Product ID: ' . $row["productID"] . ', Name: ' . $row["productDescription"] . ', Cost: ' . $row["costPerItem"] . ', Quantity: ' . $row["numberItems"];
             }
             mysqli_free_result($result);
           }

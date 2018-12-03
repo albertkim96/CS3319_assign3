@@ -25,7 +25,7 @@ File: newcustomer.php -->
             <li><a class="active" href="newcustomer.php">Adding a customer</a></li>
             <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
             <li><a href="deletecustomer.php">Delete a customer</a></li>
-            <li><a href="listcustomers.php">List all customers who bought more</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more than a given quantity</a></li>
             <li><a href="productsnotpurchased.php">List products not purchased</a></li>
             <li><a href="totalnumber.php">List total number of purchases for a product</a></li>
         </ul>
@@ -112,9 +112,10 @@ File: newcustomer.php -->
             die("Query to insert customer failed: " . mysqli_error($connection));
           }
           mysqli_free_result($insert_result);
-          # Close connection after
-          mysqli_close($connection);
+         
         }
+         # Close connection after
+         mysqli_close($connection);
       ?>
 
     </div>

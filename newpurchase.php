@@ -24,7 +24,7 @@ File: newpurchase.php -->
             <li><a href="newcustomer.php">Adding a customer</a></li>
             <li><a href="updatephonenumber.php">Update a customer's phone number</a></li>
             <li><a href="deletecustomer.php">Delete a customer</a></li>
-            <li><a href="listcustomers.php">List all customers who bought more</a></li>
+            <li><a href="listcustomers.php">List all customers who bought more than a given quantity</a></li>
             <li><a href="productsnotpurchased.php">List products not purchased</a></li>
             <li><a href="totalnumber.php">List total number of purchases for a product</a></li>
         </ul>
@@ -116,9 +116,9 @@ File: newpurchase.php -->
           mysqli_free_result($$result);
           mysqli_free_result($insert_result);
           mysqli_free_result($add_result);
-          # Close connection after
-          mysqli_close($connection);
         }
+        # Close connection after
+        mysqli_close($connection);
       ?>
     </div>
 
