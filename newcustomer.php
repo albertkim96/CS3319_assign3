@@ -53,12 +53,12 @@ File: newcustomer.php -->
             $id = intval($row["id"]) + 2;
             echo '<label for="ID"> ID:</label>';
             echo '<b>' . $id  . '</b>';
-            echo '<br>'
         ?>
+        <br>
 
         <!-- First name, Last name, city, phone number, agent -->
         <label for="fName">First Name:</label>
-        <input type="text" name="firstName" placeholder="Albert">
+        <input type="text" name="firstName" placeholder="Albert"><br>
 
         <label for="lName">Last Name:</label>
         <input type="text" name="lastName" placeholder="Kim"><br>
@@ -85,14 +85,16 @@ File: newcustomer.php -->
                 echo '<option value=' . $row["agentID"] . '>' . $row["firstName"] . ' ' . $row["lastName"] . '</option>';
             }
         ?>
+
         <!-- User has to make sure to submit in order to enter the new customer -->
         <br>
         <input type="submit" name="newCustomer" value="Add New Customer">
       </form>
 
-      <!-- After the user presses submit, it leads to this part -->
+      <!-- After the user fills out all the necessary information and presses submit -->
       <?php
         if (isset($_POST["newCustomer"])) {
+          # Retrieve all the variables
           $customerID = $id;
           $customerFName = $_POST["firstName"];
           $customerLName = $_POST["lastName"];
@@ -107,6 +109,8 @@ File: newcustomer.php -->
           if (!$insert_result) {
             die("Query to insert customer failed: " . mysqli_error($connection));
           }
+          # Close connection after
+          mysqli_close($connection);
         }
       ?>
 
