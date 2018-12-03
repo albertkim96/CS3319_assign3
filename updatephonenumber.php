@@ -74,7 +74,7 @@ File: updatephonenumber.php -->
               die("Query failed");
             }
             else {
-              echo 'Query success';
+              echo 'Customer phone updated!';
             }
           }
           # Close connection after

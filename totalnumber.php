@@ -77,9 +77,6 @@ File: totalnumber.php -->
 
           # Get the total amount by multiplying cost and the total amount
           $totalAmount = $products_amount["costPerItem"] * $amount["total"];
-
-          mysqli_free_result($result);
-          mysqli_free_result($products_result);
         }
       ?>
       
