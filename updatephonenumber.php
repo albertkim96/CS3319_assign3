@@ -1,3 +1,8 @@
+<!-- Author: Minhyuk Kim
+Student number: 250807072
+Assignment: CS3319 Assignment 3
+File: updatephonenumber.php -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,17 +54,22 @@
                 echo '</select';
             ?>
             <br>
-            <input type="text" name="newCustomerNumber" placeholder="xxx-xxxx">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" name="pNumber" placeholder="***-****"><br>
             <br>
             <input type="submit" name="submit">
         </form>
-
+        
+        <!-- After user chooses the customer and which phone number to update it with-->          
         <?php
           if (isset($_POST["submit"])) {
-            $newPhoneNumber = $_POST["newCustomerNumber"];
+            # Put the phone number and customer id in the variable
+            $newPhoneNumber = $_POST["pNumber"];
             $customerid = $_POST["customerlist"];
+            # Query to update phone number
             $query = 'UPDATE customers SET phoneNumber=' . $newPhoneNumber . ' WHERE customerID=' . $customerid;
             $result = mysqli_query($connection, $query);
+            # Check if query worked
             if (!$result) {
               die("Query failed");
             }
@@ -67,6 +77,7 @@
               echo 'Query success';
             }
           }
+          # Close connection after
           mysqli_close($connection);
         ?>
 
