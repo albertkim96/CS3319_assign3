@@ -109,7 +109,10 @@ File: newcustomer.php -->
           $insert_result = mysqli_query($connection, $query);
           # Checks if the query was successful
           if (!$insert_result) {
-            die("Query to insert customer failed: " . mysqli_error($connection));
+            die("Query to insert customer failed: ");
+          }
+          else {
+              echo 'Customer added!';
           }
         }
          # Close connection after
